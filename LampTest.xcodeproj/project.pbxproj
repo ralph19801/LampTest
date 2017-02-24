@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07620CBDA6F77C424CB7876E /* libPods-LampTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA77AE9F959321FE61FCB75 /* libPods-LampTest.a */; };
+		FD2044021E5E094700B64D8B /* LTTLamp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2044011E5E094700B64D8B /* LTTLamp.m */; };
+		FD2044051E5E0D4E00B64D8B /* LTTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2044041E5E0D4E00B64D8B /* LTTSettingsViewController.m */; };
+		FD20440A1E5F489E00B64D8B /* UIColor+LTTColors.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2044091E5F489E00B64D8B /* UIColor+LTTColors.m */; };
+		FD2044101E5F4A5600B64D8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD20440C1E5F4A5600B64D8B /* Main.storyboard */; };
+		FD2044111E5F4A5600B64D8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD20440E1E5F4A5600B64D8B /* LaunchScreen.storyboard */; };
+		FD2044131E5F4A6A00B64D8B /* led.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD2044121E5F4A6A00B64D8B /* led.csv */; };
+		FD27AEAB1E5DC6110033A04E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD27AEAA1E5DC6110033A04E /* main.m */; };
+		FD27AEAE1E5DC6110033A04E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD27AEAD1E5DC6110033A04E /* AppDelegate.m */; };
+		FD27AEB61E5DC6110033A04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD27AEB51E5DC6110033A04E /* Assets.xcassets */; };
+		FD28268C1E5F897F001C36E7 /* LTTLampListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28268B1E5F897F001C36E7 /* LTTLampListViewController.m */; };
+		FD28268F1E5F8999001C36E7 /* LTTLampListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28268E1E5F8999001C36E7 /* LTTLampListTVC.m */; };
+		FD2826921E5F89B3001C36E7 /* LTTLampListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2826911E5F89B3001C36E7 /* LTTLampListViewModel.m */; };
+		FD4562B41E5F6DAB00CC8074 /* LTTParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4562B31E5F6DAB00CC8074 /* LTTParser.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9FD6F84AD3D0FF5A9B0070BC /* Pods-LampTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LampTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LampTest/Pods-LampTest.debug.xcconfig"; sourceTree = "<group>"; };
+		ACA77AE9F959321FE61FCB75 /* libPods-LampTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LampTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAF11A716F529D2A455D68ED /* Pods-LampTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LampTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-LampTest/Pods-LampTest.release.xcconfig"; sourceTree = "<group>"; };
+		FD2044001E5E094700B64D8B /* LTTLamp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTLamp.h; sourceTree = "<group>"; };
+		FD2044011E5E094700B64D8B /* LTTLamp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTLamp.m; sourceTree = "<group>"; };
+		FD2044031E5E0D4E00B64D8B /* LTTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTSettingsViewController.h; sourceTree = "<group>"; };
+		FD2044041E5E0D4E00B64D8B /* LTTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTSettingsViewController.m; sourceTree = "<group>"; };
+		FD2044061E5E0DD000B64D8B /* LampTest.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LampTest.pch; sourceTree = "<group>"; };
+		FD2044081E5F489E00B64D8B /* UIColor+LTTColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LTTColors.h"; sourceTree = "<group>"; };
+		FD2044091E5F489E00B64D8B /* UIColor+LTTColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LTTColors.m"; sourceTree = "<group>"; };
+		FD20440D1E5F4A5600B64D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FD20440F1E5F4A5600B64D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FD2044121E5F4A6A00B64D8B /* led.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = led.csv; sourceTree = "<group>"; };
+		FD27AEA61E5DC6110033A04E /* LampTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LampTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD27AEAA1E5DC6110033A04E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FD27AEAC1E5DC6110033A04E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FD27AEAD1E5DC6110033A04E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FD27AEB51E5DC6110033A04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD27AEBA1E5DC6120033A04E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD28268A1E5F897E001C36E7 /* LTTLampListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTLampListViewController.h; sourceTree = "<group>"; };
+		FD28268B1E5F897F001C36E7 /* LTTLampListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTLampListViewController.m; sourceTree = "<group>"; };
+		FD28268D1E5F8999001C36E7 /* LTTLampListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTLampListTVC.h; sourceTree = "<group>"; };
+		FD28268E1E5F8999001C36E7 /* LTTLampListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTLampListTVC.m; sourceTree = "<group>"; };
+		FD2826901E5F89B3001C36E7 /* LTTLampListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTLampListViewModel.h; sourceTree = "<group>"; };
+		FD2826911E5F89B3001C36E7 /* LTTLampListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTLampListViewModel.m; sourceTree = "<group>"; };
+		FD4562B21E5F6DAB00CC8074 /* LTTParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTParser.h; sourceTree = "<group>"; };
+		FD4562B31E5F6DAB00CC8074 /* LTTParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTParser.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD27AEA31E5DC6110033A04E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07620CBDA6F77C424CB7876E /* libPods-LampTest.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9470B9AD2766F1BA5746F602 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FD6F84AD3D0FF5A9B0070BC /* Pods-LampTest.debug.xcconfig */,
+				DAF11A716F529D2A455D68ED /* Pods-LampTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D2FD037414164B2083C27CF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACA77AE9F959321FE61FCB75 /* libPods-LampTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD2043FF1E5E092100B64D8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD2044001E5E094700B64D8B /* LTTLamp.h */,
+				FD2044011E5E094700B64D8B /* LTTLamp.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD2044071E5F488500B64D8B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FD2044081E5F489E00B64D8B /* UIColor+LTTColors.h */,
+				FD2044091E5F489E00B64D8B /* UIColor+LTTColors.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FD20440B1E5F49D900B64D8B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FD2044121E5F4A6A00B64D8B /* led.csv */,
+				FD20440C1E5F4A5600B64D8B /* Main.storyboard */,
+				FD20440E1E5F4A5600B64D8B /* LaunchScreen.storyboard */,
+				FD27AEB51E5DC6110033A04E /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FD27AE9D1E5DC6110033A04E = {
+			isa = PBXGroup;
+			children = (
+				FD27AEA81E5DC6110033A04E /* LampTest */,
+				FD27AEA71E5DC6110033A04E /* Products */,
+				9470B9AD2766F1BA5746F602 /* Pods */,
+				D2FD037414164B2083C27CF9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FD27AEA71E5DC6110033A04E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD27AEA61E5DC6110033A04E /* LampTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD27AEA81E5DC6110033A04E /* LampTest */ = {
+			isa = PBXGroup;
+			children = (
+				FD2044071E5F488500B64D8B /* Helpers */,
+				FD2043FF1E5E092100B64D8B /* Model */,
+				FD4562B11E5F6D9100CC8074 /* Parser */,
+				FD20440B1E5F49D900B64D8B /* Resources */,
+				FD27AEAC1E5DC6110033A04E /* AppDelegate.h */,
+				FD27AEAD1E5DC6110033A04E /* AppDelegate.m */,
+				FD27AEA91E5DC6110033A04E /* Supporting Files */,
+				FD2044031E5E0D4E00B64D8B /* LTTSettingsViewController.h */,
+				FD2044041E5E0D4E00B64D8B /* LTTSettingsViewController.m */,
+				FD28268A1E5F897E001C36E7 /* LTTLampListViewController.h */,
+				FD28268B1E5F897F001C36E7 /* LTTLampListViewController.m */,
+				FD28268D1E5F8999001C36E7 /* LTTLampListTVC.h */,
+				FD28268E1E5F8999001C36E7 /* LTTLampListTVC.m */,
+				FD2826901E5F89B3001C36E7 /* LTTLampListViewModel.h */,
+				FD2826911E5F89B3001C36E7 /* LTTLampListViewModel.m */,
+			);
+			path = LampTest;
+			sourceTree = "<group>";
+		};
+		FD27AEA91E5DC6110033A04E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD27AEAA1E5DC6110033A04E /* main.m */,
+				FD27AEBA1E5DC6120033A04E /* Info.plist */,
+				FD2044061E5E0DD000B64D8B /* LampTest.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FD4562B11E5F6D9100CC8074 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				FD4562B21E5F6DAB00CC8074 /* LTTParser.h */,
+				FD4562B31E5F6DAB00CC8074 /* LTTParser.m */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FD27AEA51E5DC6110033A04E /* LampTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD27AEBD1E5DC6120033A04E /* Build configuration list for PBXNativeTarget "LampTest" */;
+			buildPhases = (
+				225ED75530A21E2C4FE62D61 /* [CP] Check Pods Manifest.lock */,
+				FD27AEA21E5DC6110033A04E /* Sources */,
+				FD27AEA31E5DC6110033A04E /* Frameworks */,
+				FD27AEA41E5DC6110033A04E /* Resources */,
+				8B6F42FE43B8438D1E504FF6 /* [CP] Embed Pods Frameworks */,
+				779D6CB766F118073571F79B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LampTest;
+			productName = LampTest;
+			productReference = FD27AEA61E5DC6110033A04E /* LampTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD27AE9E1E5DC6110033A04E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LTT;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = VMB;
+				TargetAttributes = {
+					FD27AEA51E5DC6110033A04E = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = Y6MB32H876;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FD27AEA11E5DC6110033A04E /* Build configuration list for PBXProject "LampTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FD27AE9D1E5DC6110033A04E;
+			productRefGroup = FD27AEA71E5DC6110033A04E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD27AEA51E5DC6110033A04E /* LampTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD27AEA41E5DC6110033A04E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD2044111E5F4A5600B64D8B /* LaunchScreen.storyboard in Resources */,
+				FD27AEB61E5DC6110033A04E /* Assets.xcassets in Resources */,
+				FD2044131E5F4A6A00B64D8B /* led.csv in Resources */,
+				FD2044101E5F4A5600B64D8B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		225ED75530A21E2C4FE62D61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		779D6CB766F118073571F79B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LampTest/Pods-LampTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B6F42FE43B8438D1E504FF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LampTest/Pods-LampTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD27AEA21E5DC6110033A04E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD27AEAE1E5DC6110033A04E /* AppDelegate.m in Sources */,
+				FD28268C1E5F897F001C36E7 /* LTTLampListViewController.m in Sources */,
+				FD2826921E5F89B3001C36E7 /* LTTLampListViewModel.m in Sources */,
+				FD28268F1E5F8999001C36E7 /* LTTLampListTVC.m in Sources */,
+				FD4562B41E5F6DAB00CC8074 /* LTTParser.m in Sources */,
+				FD2044021E5E094700B64D8B /* LTTLamp.m in Sources */,
+				FD2044051E5E0D4E00B64D8B /* LTTSettingsViewController.m in Sources */,
+				FD20440A1E5F489E00B64D8B /* UIColor+LTTColors.m in Sources */,
+				FD27AEAB1E5DC6110033A04E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FD20440C1E5F4A5600B64D8B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD20440D1E5F4A5600B64D8B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FD20440E1E5F4A5600B64D8B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD20440F1E5F4A5600B64D8B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FD27AEBB1E5DC6120033A04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FD27AEBC1E5DC6120033A04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FD27AEBE1E5DC6120033A04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FD6F84AD3D0FF5A9B0070BC /* Pods-LampTest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y6MB32H876;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = LampTest/LampTest.pch;
+				INFOPLIST_FILE = LampTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VMB.LampTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FD27AEBF1E5DC6120033A04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAF11A716F529D2A455D68ED /* Pods-LampTest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y6MB32H876;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = LampTest/LampTest.pch;
+				INFOPLIST_FILE = LampTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VMB.LampTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD27AEA11E5DC6110033A04E /* Build configuration list for PBXProject "LampTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD27AEBB1E5DC6120033A04E /* Debug */,
+				FD27AEBC1E5DC6120033A04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD27AEBD1E5DC6120033A04E /* Build configuration list for PBXNativeTarget "LampTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD27AEBE1E5DC6120033A04E /* Debug */,
+				FD27AEBF1E5DC6120033A04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FD27AE9E1E5DC6110033A04E /* Project object */;
+}
