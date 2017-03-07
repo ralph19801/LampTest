@@ -24,6 +24,7 @@ PODS:
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
+  - MTBBarcodeScanner (3.1.0)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -47,18 +48,20 @@ DEPENDENCIES:
   - AFNetworking (~> 2.6.3)
   - CHCSVParser (~> 2.1.0)
   - Mantle (~> 2.1.0)
+  - MTBBarcodeScanner
   - ReactiveCocoa (= 2.5)
-  - Realm
+  - Realm (~> 2.1.2)
   - Typhoon (~> 4.0.0)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   CHCSVParser: 3bcc7bdb72111a31222e95d57eacceefe4e537e8
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
+  MTBBarcodeScanner: 6d397077f1a4a886050df8e66584a59a1dc429e7
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
   Typhoon: 1fcbf6417e7040e645c910e7004336c51c916fb3
 
-PODFILE CHECKSUM: 616d9ce766c6f8d54d390898e8e42809dcc1a577
+PODFILE CHECKSUM: f320cebe147d78b32cacafb2168e02787a62a676
 
 COCOAPODS: 1.1.1

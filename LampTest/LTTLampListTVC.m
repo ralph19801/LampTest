@@ -7,12 +7,24 @@
 //
 
 #import "LTTLampListTVC.h"
+#import "LTTLampListTVCell.h"
 
 @interface LTTLampListTVC ()
 
 @end
 
 @implementation LTTLampListTVC
+
+- (void)setViewModel:(LTTLampListViewModel *)viewModel
+{
+    _viewModel = viewModel;
+    
+    @weakify(self);
+    [RACObserve(self.viewModel, lamps) subscribeNext:^(id x) {
+        @strongify(self);
+        [self.tableView reloadData];
+    }];
+}
 
 - (void)viewDidLoad
 {
@@ -31,34 +43,22 @@
     return self.viewModel.lamps.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LTTLampListCell" forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LTTLampListTVCell *cell = (LTTLampListTVCell *)[tableView dequeueReusableCellWithIdentifier:@"LTTLampListCell" forIndexPath:indexPath];
     
     LTTLamp *lamp = self.viewModel.lamps[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", lamp.brand, lamp.model];
+    cell.lamp = lamp;
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    SAFE_RUN(self.onRowSelected, indexPath.row);
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
 /*
 // Override to support rearranging the table view.

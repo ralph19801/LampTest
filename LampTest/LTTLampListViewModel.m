@@ -14,7 +14,8 @@
 {
     if (self = [super init])
     {
-        self.lamps = [LTTLamp allObjects];
+        _lamps = [[LTTLamp allObjects] sortedResultsUsingDescriptors:@[[RLMSortDescriptor sortDescriptorWithProperty:@"brand" ascending:YES],
+                                                                       [RLMSortDescriptor sortDescriptorWithProperty:@"model" ascending:YES]]];
     }
     return self;
 }

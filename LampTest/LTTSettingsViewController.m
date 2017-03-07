@@ -43,6 +43,19 @@
             [realm deleteAllObjects];
             [realm addObjects:results];
         }];
+        
+        NSURL *base = [[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject];
+        NSURL *url = [NSURL URLWithString:@"default.db" relativeToURL:base];
+        NSError *error = nil;
+        [[NSFileManager defaultManager] removeItemAtURL:url error:nil];
+        [realm writeCopyToURL:url encryptionKey:nil error:&error];
+        
+        if ( ! error ) {
+            NSLog(@"Database saved at %@", url.path);
+        }
+        else {
+            NSLog(@"error while saving database: %@", error);
+        }
     }];
 }
 

@@ -9,50 +9,7 @@
 #import "LTTParser.h"
 #import <CHCSVParser/CHCSVParser.h>
 #import "LTTLamp.h"
-
-typedef NS_ENUM(NSUInteger, LTTParserNamesToProperties) {
-    LTTLampUnknown = 0,
-    LTTLampNumber,
-    LTTLampBrand,
-    LTTLampModel,
-    LTTLampNominalPower,
-    LTTLampLink,
-    LTTLampLink2,
-    LTTLampPriceRub,
-    LTTLampPriceUsd,
-    LTTLampCode,
-    LTTLampDiameter,
-    LTTLampHeight,
-    LTTLampVoltage,
-    LTTLampCapType,
-    LTTLampView,
-    LTTLampType,
-    LTTLampSubtype,
-    LTTLampMatte,
-    LTTLampNominalBrightness,
-    LTTLampNominalPowerEquivalent,
-    LTTLampNominalColor,
-    LTTLampNominalCRI,
-    LTTLampDurability,
-    LTTLampWarranty,
-    LTTLampMade,
-    LTTLampDimmer,
-    LTTLampSwitch,
-    LTTLampPower,
-    LTTLampBrightness,
-    LTTLampPowerEquivalent,
-    LTTLampColor,
-    LTTLampCRI,
-    LTTLampR9,
-    LTTLampAngle,
-    LTTLampPulsation,
-    LTTLampPF,
-    LTTLampDate,
-    LTTLampRating,
-    LTTLamp60,
-    LTTLamp40,
-    LTTLampActual
-};
+#import "LTTParameterNamesEnum.h"
 
 @interface LTTParser () <CHCSVParserDelegate>
 
@@ -75,46 +32,46 @@ typedef NS_ENUM(NSUInteger, LTTParserNamesToProperties) {
 {
     if (self = [super init]) {
         _namesToProperties = @{
-                               @"№" : @(LTTLampNumber),
-                               @"Бренд" : @(LTTLampBrand),
-                               @"Модель" : @(LTTLampModel),
-                               @"P'" : @(LTTLampNominalPower),
-                               @"Ссылка" : @(LTTLampLink),
-                               @"" : @(LTTLampLink2),           // заголовок пустая строка
-                               @"руб." : @(LTTLampPriceRub),
-                               @"$" : @(LTTLampPriceUsd),
-                               @"Штрихкод" : @(LTTLampCode),
-                               @"Диаметр" : @(LTTLampDiameter),
-                               @"Высота" : @(LTTLampHeight),
-                               @"Напряжение" : @(LTTLampVoltage), // составной, 220-240
-                               @"Цок." : @(LTTLampCapType),
-                               @"Вид" : @(LTTLampView),
-                               @"Тип" : @(LTTLampType),
-                               @"Подтип" : @(LTTLampSubtype),
-                               @"Мат" : @(LTTLampMatte),
-                               @"Лм'" : @(LTTLampNominalBrightness),
-                               @"Экв'" : @(LTTLampNominalPowerEquivalent),
-                               @"Цвет'" : @(LTTLampNominalColor),
-                               @"Ra" : @(LTTLampNominalCRI),
-                               @"Срок" : @(LTTLampDurability),
-                               @"Гар" : @(LTTLampWarranty),
-                               @"Изг" : @(LTTLampMade),
-                               @"Дим" : @(LTTLampDimmer),
-                               @"Вык" : @(LTTLampSwitch),
-                               @"P" : @(LTTLampPower),
-                               @"Лм" : @(LTTLampBrightness),
-                               @"Экв" : @(LTTLampPowerEquivalent),
-                               @"Цвет" : @(LTTLampColor),
-                               @"CRI" : @(LTTLampCRI),
-                               @"R9" : @(LTTLampR9),
-                               @"Угол" : @(LTTLampAngle),
-                               @"Пульс" : @(LTTLampPulsation),
-                               @"PF" : @(LTTLampPF),
-                               @"Дата" : @(LTTLampDate),
-                               @"Итог" : @(LTTLampRating),
-                               @"60" : @(LTTLamp60),
-                               @"40" : @(LTTLamp40),
-                               @"Актуальна" : @(LTTLampActual)
+                               @"no" : @(LTTLampNumber),
+                               @"brand" : @(LTTLampBrand),
+                               @"model" : @(LTTLampModel),
+                               @"power_l" : @(LTTLampNominalPower),
+                               @"url" : @(LTTLampLink),
+                               @"shop" : @(LTTLampShop),
+                               @"rub" : @(LTTLampPriceRub),
+                               @"usd" : @(LTTLampPriceUsd),
+                               @"barcode" : @(LTTLampCode),
+                               @"d" : @(LTTLampDiameter),
+                               @"h" : @(LTTLampHeight),
+                               @"u" : @(LTTLampVoltage), // составной, 220-240
+                               @"base" : @(LTTLampBase),
+                               @"shape" : @(LTTLampShape),
+                               @"type" : @(LTTLampType),
+                               @"type2" : @(LTTLampSubtype),
+                               @"matt" : @(LTTLampMatte),
+                               @"lm_l" : @(LTTLampNominalBrightness),
+                               @"eq_l" : @(LTTLampNominalPowerEquivalent),
+                               @"color_l" : @(LTTLampNominalColor),
+                               @"ra_l" : @(LTTLampNominalCRI),
+                               @"life" : @(LTTLampDurability),
+                               @"war" : @(LTTLampWarranty),
+                               @"prod" : @(LTTLampMade),
+                               @"dim" : @(LTTLampDimmer),
+                               @"switch" : @(LTTLampSwitch),
+                               @"p" : @(LTTLampPower),
+                               @"lm" : @(LTTLampBrightness),
+                               @"eq" : @(LTTLampPowerEquivalent),
+                               @"color" : @(LTTLampColor),
+                               @"cri" : @(LTTLampCRI),
+                               @"r9" : @(LTTLampR9),
+                               @"angle" : @(LTTLampAngle),
+                               @"flicker" : @(LTTLampPulsation),
+                               @"pf" : @(LTTLampPF),
+                               @"date" : @(LTTLampDate),
+                               @"rating" : @(LTTLampRating),
+                               @"act" : @(LTTLampActual),
+                               @"u_min" : @(LTTLampVoltageMin),
+                               @"___" : @(LTTLampEffectivity)  // нет в CSV, расчетный
                                };
     }
     return self;
@@ -147,6 +104,7 @@ typedef NS_ENUM(NSUInteger, LTTParserNamesToProperties) {
 - (void)parser:(CHCSVParser *)parser didEndLine:(NSUInteger)recordNumber
 {
     if ( ! self.namesRow ) {
+        self.currentLamp.effectivity = (self.currentLamp.power > 0) ? self.currentLamp.brightness / self.currentLamp.power : 0;
         [self.lamps addObject:self.currentLamp];
     }
 }
@@ -220,6 +178,9 @@ typedef NS_ENUM(NSUInteger, LTTParserNamesToProperties) {
     }
     
     NSRange minusRange;
+    NSMutableString *mutableValue;
+    NSDateFormatter *dateFormatter;
+    
     switch (property) {
             
         case LTTLampUnknown:
@@ -245,8 +206,8 @@ typedef NS_ENUM(NSUInteger, LTTParserNamesToProperties) {
             self.currentLamp.link = value;
             break;
             
-        case LTTLampLink2:
-            self.currentLamp.link2 = value;
+        case LTTLampShop:
+            self.currentLamp.shop = value;
             break;
             
         case LTTLampPriceRub:
@@ -282,12 +243,12 @@ typedef NS_ENUM(NSUInteger, LTTParserNamesToProperties) {
             }
             break;
             
-        case LTTLampCapType:
-            self.currentLamp.capType = value; //TODO сохранить все варианты
+        case LTTLampBase:
+            self.currentLamp.base = value; //TODO сохранить все варианты
             break;
             
-        case LTTLampView:
-            self.currentLamp.view = value; //TODO сохранить варианты
+        case LTTLampShape:
+            self.currentLamp.shape = value; //TODO сохранить варианты
             break;
             
         case LTTLampType:
@@ -326,9 +287,15 @@ typedef NS_ENUM(NSUInteger, LTTParserNamesToProperties) {
             self.currentLamp.warranty = [value integerValue];
             break;
             
-        case LTTLampMade:
-            //TODO string -> str.ing
-            self.currentLamp.made = value;
+        case LTTLampMade: // 613 -> 06.13
+            if ([value doubleValue] == 0) {
+                self.currentLamp.made = @"";
+            }
+            else {
+                mutableValue = [[NSMutableString stringWithFormat:@"%04.0f", [value doubleValue]] mutableCopy];
+                [mutableValue insertString:@"." atIndex:2];
+                self.currentLamp.made = [mutableValue copy];
+            }
             break;
             
         case LTTLampDimmer:
@@ -376,24 +343,25 @@ typedef NS_ENUM(NSUInteger, LTTParserNamesToProperties) {
             break;
         
         case LTTLampDate:
-//            self.currentLamp.date =
-            //todo
+            dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"dd.MM.yyyy"];
+            self.currentLamp.date = [dateFormatter dateFromString:value];
             break;
         
         case LTTLampRating:
             self.currentLamp.rating = [value doubleValue];
             break;
-        
-        case LTTLamp60:
-            self.currentLamp.p60 = value;
-            break;
-            
-        case LTTLamp40:
-            self.currentLamp.p40 = value;
-            break;
             
         case LTTLampActual:
             self.currentLamp.actual = [value boolValue];
+            break;
+        
+        case LTTLampVoltageMin:
+            self.currentLamp.voltageMin = [value integerValue];
+            break;
+            
+        case LTTLampEffectivity:
+            // подсчитывается в конце
             break;
     }
 }

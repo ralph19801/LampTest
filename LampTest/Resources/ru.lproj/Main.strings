@@ -1,0 +1,60 @@
+
+/* Class = "UITabBarItem"; title = "О приложении"; ObjectID = "0ap-pA-CNR"; */
+"0ap-pA-CNR.title" = "О приложении";
+
+/* Class = "UINavigationItem"; title = "Сканер"; ObjectID = "1qx-jn-RdR"; */
+"1qx-jn-RdR.title" = "Сканер";
+
+/* Class = "UITabBarItem"; title = "Обновление"; ObjectID = "9Gy-5v-HUB"; */
+"9Gy-5v-HUB.title" = "Обновление";
+
+/* Class = "UINavigationItem"; title = "О приложении"; ObjectID = "AkS-Aq-NNc"; */
+"AkS-Aq-NNc.title" = "О приложении";
+
+/* Class = "UIButton"; normalTitle = "Настройки"; ObjectID = "DTf-gc-hy3"; */
+"DTf-gc-hy3.normalTitle" = "Настройки";
+
+/* Class = "UIButton"; normalTitle = "Сканировать снова"; ObjectID = "G05-VT-E1W"; */
+"G05-VT-E1W.normalTitle" = "Сканировать снова";
+
+/* Class = "UINavigationItem"; title = "123 лампы"; ObjectID = "HKS-Ms-yxW"; */
+"HKS-Ms-yxW.title" = "123 лампы";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "Ip8-nq-eQh"; */
+"Ip8-nq-eQh.title" = "Root View Controller";
+
+/* Class = "UILabel"; text = "Код\n12334253456\nне найден в базе."; ObjectID = "L4h-xy-u1P"; */
+"L4h-xy-u1P.text" = "Код\n12334253456\nне найден в базе.";
+
+/* Class = "UITabBarItem"; title = "Лампы"; ObjectID = "M8m-KR-d2x"; */
+"M8m-KR-d2x.title" = "Лампы";
+
+/* Class = "UILabel"; text = "Brand"; ObjectID = "Mco-dg-PMn"; */
+"Mco-dg-PMn.text" = "Brand";
+
+/* Class = "UINavigationItem"; title = "Настройки"; ObjectID = "PJ2-rl-clr"; */
+"PJ2-rl-clr.title" = "Настройки";
+
+/* Class = "UITabBarItem"; title = "Настройки"; ObjectID = "PfM-sO-02x"; */
+"PfM-sO-02x.title" = "Настройки";
+
+/* Class = "UILabel"; text = "0.0"; ObjectID = "R0S-sf-qgT"; */
+"R0S-sf-qgT.text" = "0.0";
+
+/* Class = "UILabel"; text = "Приложению требуется доступ к камере для сканирования штрихкодов."; ObjectID = "Umq-Je-TFP"; */
+"Umq-Je-TFP.text" = "Приложению требуется доступ к камере для сканирования штрихкодов.";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "VHj-dO-65C"; */
+"VHj-dO-65C.title" = " ";
+
+/* Class = "UITabBarItem"; title = "О приложении"; ObjectID = "ca7-WG-MWG"; */
+"ca7-WG-MWG.title" = "О приложении";
+
+/* Class = "UIButton"; normalTitle = "Перегрузить из локального CSV"; ObjectID = "mnV-WI-hNe"; */
+"mnV-WI-hNe.normalTitle" = "Перегрузить из локального CSV";
+
+/* Class = "UILabel"; text = "Bulb Model"; ObjectID = "oca-G8-1pR"; */
+"oca-G8-1pR.text" = "Bulb Model";
+
+/* Class = "UINavigationItem"; title = "Фильтры"; ObjectID = "yH6-GB-f4p"; */
+"yH6-GB-f4p.title" = "Фильтры";

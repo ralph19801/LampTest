@@ -20,12 +20,33 @@
 {
     [self setupDatabase];
     [self setupAppearance];
+    
     return YES;
 }
 
 - (void)setupDatabase
 {
+    BOOL notFirstLaunch = [[[NSUserDefaults standardUserDefaults] valueForKey:@"notFirstLaunch"] boolValue];
+    if ( ! notFirstLaunch ) {
+        NSError *error = nil;
+        NSString *pathToDb = [[NSBundle mainBundle] pathForResource:@"default" ofType:@"db"];
+        NSURL *base = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        NSString *newDbPath = [NSURL URLWithString:@"default.realm" relativeToURL:base].path;
+        [[NSFileManager defaultManager] copyItemAtPath:pathToDb toPath:newDbPath error:&error];
+        
+        if ( ! error ) {
+            NSLog(@"Database prefilled successfully");
+        }
+        else {
+            NSLog(@"Error while prefilling database: %@", error);
+        }
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notFirstLaunch"];
+    }
+    
     [RLMRealmConfiguration defaultConfiguration].deleteRealmIfMigrationNeeded = YES;
+    
+    NSLog(@"Realm database at: %@", [RLMRealmConfiguration defaultConfiguration].fileURL);
 }
 
 - (void)setupAppearance
@@ -35,6 +56,9 @@
                                                            NSFontAttributeName: [UIFont fontWithName:@"AvenirNext-Regular" size:17.0]}];
     
     [[UINavigationBar appearance] setTintColor:[UIColor ltt_orangeColor]];
+    
+    // UITabBar
+    [[UITabBar appearance] setTintColor:[UIColor ltt_orangeColor]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

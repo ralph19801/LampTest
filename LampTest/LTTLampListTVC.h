@@ -11,5 +11,7 @@
 @interface LTTLampListTVC : UITableViewController
 
 @property (nonatomic, weak) LTTLampListViewModel *viewModel;
+    
+@property (nonatomic, copy) void (^onRowSelected)(NSInteger rowIndex);
 
 @end
