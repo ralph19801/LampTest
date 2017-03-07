@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		07620CBDA6F77C424CB7876E /* libPods-LampTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA77AE9F959321FE61FCB75 /* libPods-LampTest.a */; };
+		FD07E46D1E6EEF5F00064F52 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD07E46A1E6EEF5F00064F52 /* logo@2x.png */; };
+		FD07E46E1E6EEF5F00064F52 /* logo@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD07E46B1E6EEF5F00064F52 /* logo@1x.png */; };
+		FD07E46F1E6EEF5F00064F52 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD07E46C1E6EEF5F00064F52 /* logo@3x.png */; };
 		FD2044021E5E094700B64D8B /* LTTLamp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2044011E5E094700B64D8B /* LTTLamp.m */; };
 		FD2044051E5E0D4E00B64D8B /* LTTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2044041E5E0D4E00B64D8B /* LTTSettingsViewController.m */; };
 		FD20440A1E5F489E00B64D8B /* UIColor+LTTColors.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2044091E5F489E00B64D8B /* UIColor+LTTColors.m */; };
@@ -35,6 +38,9 @@
 		9FD6F84AD3D0FF5A9B0070BC /* Pods-LampTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LampTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LampTest/Pods-LampTest.debug.xcconfig"; sourceTree = "<group>"; };
 		ACA77AE9F959321FE61FCB75 /* libPods-LampTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LampTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAF11A716F529D2A455D68ED /* Pods-LampTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LampTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-LampTest/Pods-LampTest.release.xcconfig"; sourceTree = "<group>"; };
+		FD07E46A1E6EEF5F00064F52 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		FD07E46B1E6EEF5F00064F52 /* logo@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@1x.png"; sourceTree = "<group>"; };
+		FD07E46C1E6EEF5F00064F52 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		FD2044001E5E094700B64D8B /* LTTLamp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTLamp.h; sourceTree = "<group>"; };
 		FD2044011E5E094700B64D8B /* LTTLamp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTLamp.m; sourceTree = "<group>"; };
 		FD2044031E5E0D4E00B64D8B /* LTTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTSettingsViewController.h; sourceTree = "<group>"; };
@@ -63,8 +69,6 @@
 		FD2826971E60B70E001C36E7 /* LTTScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTScannerViewController.m; sourceTree = "<group>"; };
 		FD4562B21E5F6DAB00CC8074 /* LTTParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTParser.h; sourceTree = "<group>"; };
 		FD4562B31E5F6DAB00CC8074 /* LTTParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTParser.m; sourceTree = "<group>"; };
-		FDEAD14A1E6C990A00D5F9F2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		FDEAD14B1E6C990A00D5F9F2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FDFA98671E6CA84D00E97187 /* LTTLampDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTLampDetailsViewController.h; sourceTree = "<group>"; };
 		FDFA98681E6CA84D00E97187 /* LTTLampDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTLampDetailsViewController.m; sourceTree = "<group>"; };
 		FDFA986A1E6D34AE00E97187 /* LTTLampDetailsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTLampDetailsTVC.h; sourceTree = "<group>"; };
@@ -132,6 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				FDFA98741E6D79B900E97187 /* default.db */,
+				FD07E46B1E6EEF5F00064F52 /* logo@1x.png */,
+				FD07E46A1E6EEF5F00064F52 /* logo@2x.png */,
+				FD07E46C1E6EEF5F00064F52 /* logo@3x.png */,
 				FD2044121E5F4A6A00B64D8B /* led.csv */,
 				FD20440C1E5F4A5600B64D8B /* Main.storyboard */,
 				FD20440E1E5F4A5600B64D8B /* LaunchScreen.storyboard */,
@@ -257,7 +264,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = FD27AE9D1E5DC6110033A04E;
@@ -276,7 +282,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD2044111E5F4A5600B64D8B /* LaunchScreen.storyboard in Resources */,
+				FD07E46D1E6EEF5F00064F52 /* logo@2x.png in Resources */,
+				FD07E46F1E6EEF5F00064F52 /* logo@3x.png in Resources */,
 				FD27AEB61E5DC6110033A04E /* Assets.xcassets in Resources */,
+				FD07E46E1E6EEF5F00064F52 /* logo@1x.png in Resources */,
 				FD2044131E5F4A6A00B64D8B /* led.csv in Resources */,
 				FDFA98751E6D79B900E97187 /* default.db in Resources */,
 				FD2044101E5F4A5600B64D8B /* Main.storyboard in Resources */,
@@ -364,7 +373,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD20440D1E5F4A5600B64D8B /* Base */,
-				FDEAD14A1E6C990A00D5F9F2 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -373,7 +381,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD20440F1E5F4A5600B64D8B /* Base */,
-				FDEAD14B1E6C990A00D5F9F2 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

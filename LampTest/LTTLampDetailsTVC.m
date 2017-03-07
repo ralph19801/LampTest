@@ -10,6 +10,7 @@
 #import "LTTParameterNamesEnum.h"
 #import "LTTLampDetailsParameterTVCell.h"
 #import "LTTLamp.h"
+#import "UIColor+LTTColors.h"
 
 static NSString *const LTTLampDetailsTVCOneStringParameterCell = @"OneStringParameter";
 static NSString *const LTTLampDetailsTVCLongStringParameterCell = @"LongStringParameter";
@@ -141,7 +142,7 @@ static NSInteger const LTTLampImagesCell = -1;
 
     // зёбра
     if (indexPath.row % 2) {
-        cell.contentView.backgroundColor = [UIColor colorWithWhite:240.f/255.f alpha:1.f];
+        cell.contentView.backgroundColor = [UIColor ltt_secondRowColor];
     }
     else {
         cell.contentView.backgroundColor = [UIColor whiteColor];
@@ -193,24 +194,49 @@ static NSInteger const LTTLampImagesCell = -1;
     
     [cell setParameterName:paramName];
     
+    // матовость
     if (param == LTTLampMatte) {
-        // развернуть enum
+        if ([paramValue integerValue] == 0) {
+            paramType = LTTLampParameterTypeString;
+            paramValue = @"прозрачная";
+        }
+        else if ([paramValue integerValue] == 1) {
+            paramType = LTTLampParameterTypeString;
+            paramValue = @"матовая";
+        }
     }
+    // поддержка выключателей с индикатором
     else if (param == LTTLampSwitch) {
-        // развернуть enum
+        if ([paramValue integerValue] == 0) {
+            paramType = LTTLampParameterTypeString;
+            paramValue = @"нет";
+        }
+        else if ([paramValue integerValue] == 1) {
+            paramType = LTTLampParameterTypeString;
+            paramValue = @"поддерживается";
+        }
+        else if ([paramValue integerValue] == 2) {
+            paramType = LTTLampParameterTypeString;
+            paramValue = @"слабо светится";
+        }
+        else if ([paramValue integerValue] == 3) {
+            paramType = LTTLampParameterTypeString;
+            paramValue = @"вспыхивает";
+        }
     }
     
+    // пустые параметры
     UIColor *valueColor = [UIColor blackColor];
     if (paramType == LTTLampParameterTypeString && [paramValue isKindOfClass:[NSString class]]) {
         if ([paramValue length] == 0) {
-            paramValue = @"Н/д";
+            paramValue = @"н/д";
             valueColor = [UIColor grayColor];
         }
     }
     else if ((paramType == LTTLampParameterTypeDouble || paramType == LTTLampParameterTypeInteger) && [paramValue isKindOfClass:[NSNumber class]]) {
         if ([paramValue isEqual:@0]) {
             paramType = LTTLampParameterTypeString;
-            paramValue = @"Н/д";
+            paramValue = @"н/д";
             valueColor = [UIColor grayColor];
         }
     }

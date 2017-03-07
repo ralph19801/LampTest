@@ -11,5 +11,6 @@
 @interface UIColor (LTTColors)
 
 + (UIColor *)ltt_orangeColor;
++ (UIColor *)ltt_secondRowColor;
 
 @end

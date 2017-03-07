@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NNN lamps-->
+        <!--NNN ламп-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LTTLampListViewController" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                             <constraint firstItem="1uJ-Wa-5oU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zlw-5T-HhW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="NNN lamps" id="HKS-Ms-yxW">
+                    <navigationItem key="navigationItem" title="NNN ламп" id="HKS-Ms-yxW">
                         <barButtonItem key="backBarButtonItem" title=" " id="VHj-dO-65C"/>
                         <barButtonItem key="leftBarButtonItem" image="scanner" id="9Vf-Up-dIE">
                             <color key="tintColor" red="1" green="0.71372549019999998" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -45,7 +45,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="navFilter" id="NPn-Lj-09H">
-                            <color key="tintColor" red="1" green="0.71372549019999998" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="1" green="0.73333333333333328" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="7aT-cC-0T0" kind="show" id="hJg-gN-Rr0"/>
                             </connections>
@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="-1953" y="913"/>
         </scene>
-        <!--Scanner-->
+        <!--Сканер штрихкодов-->
         <scene sceneID="Mbd-l5-e8b">
             <objects>
                 <viewController id="AT1-lx-u8C" customClass="LTTScannerViewController" sceneMemberID="viewController">
@@ -97,7 +97,7 @@
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2O-Wh-KI4">
                                         <rect key="frame" x="8" y="159" width="359" height="285"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The app needs access to the camera to scan barcodes." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umq-Je-TFP">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Программе требуется доступ к камере для сканирования штрихкодов." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umq-Je-TFP">
                                                 <rect key="frame" x="32" y="50" width="295" height="102"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="102" id="8OG-ih-Xij"/>
@@ -107,14 +107,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTf-gc-hy3">
-                                                <rect key="frame" x="110" y="178" width="138" height="44"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTf-gc-hy3" customClass="LTTRoundButton">
+                                                <rect key="frame" x="75" y="178" width="208" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="138" id="eqH-YK-c3N"/>
+                                                    <constraint firstAttribute="width" constant="208" id="eqH-YK-c3N"/>
                                                     <constraint firstAttribute="height" constant="44" id="x5p-Vl-99l"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                <state key="normal" title="Settings">
+                                                <state key="normal" title="Системные настройки">
                                                     <color key="titleColor" red="0.31372549020000001" green="0.31030092590000002" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -135,27 +135,24 @@
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZl-9b-IRB">
                                         <rect key="frame" x="8" y="158.5" width="359" height="285"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4h-xy-u1P">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Код NNN не найден в базе данных." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4h-xy-u1P">
                                                 <rect key="frame" x="32" y="50" width="295" height="102"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="295" id="8vh-Fz-J8k"/>
                                                     <constraint firstAttribute="height" constant="102" id="btd-Nk-xxd"/>
                                                 </constraints>
-                                                <string key="text">Code
-12334253456
-not found.</string>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G05-VT-E1W" customClass="LTTRoundButton">
-                                                <rect key="frame" x="75" y="177" width="208" height="44"/>
+                                                <rect key="frame" x="75" y="178" width="208" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="208" id="8Mu-z5-Bbs"/>
                                                     <constraint firstAttribute="height" constant="44" id="V0d-dI-uNh"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                <state key="normal" title="Scan again">
+                                                <state key="normal" title="Ещё раз">
                                                     <color key="titleColor" red="0.31372549020000001" green="0.31030092590000002" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -168,7 +165,7 @@ not found.</string>
                                             <constraint firstAttribute="width" constant="359" id="D9C-W2-77M"/>
                                             <constraint firstItem="L4h-xy-u1P" firstAttribute="centerX" secondItem="VZl-9b-IRB" secondAttribute="centerX" id="Hcj-K8-TpE"/>
                                             <constraint firstAttribute="height" constant="285" id="OpF-Gb-B3Q"/>
-                                            <constraint firstItem="G05-VT-E1W" firstAttribute="top" secondItem="L4h-xy-u1P" secondAttribute="bottom" constant="25" id="RZP-2X-d1U"/>
+                                            <constraint firstItem="G05-VT-E1W" firstAttribute="top" secondItem="L4h-xy-u1P" secondAttribute="bottom" constant="26" id="RZP-2X-d1U"/>
                                             <constraint firstItem="L4h-xy-u1P" firstAttribute="top" secondItem="VZl-9b-IRB" secondAttribute="top" constant="50" id="lpT-NT-mmf"/>
                                             <constraint firstItem="G05-VT-E1W" firstAttribute="centerX" secondItem="VZl-9b-IRB" secondAttribute="centerX" id="yMC-vq-Cgw"/>
                                         </constraints>
@@ -191,7 +188,7 @@ not found.</string>
                             <constraint firstItem="Eo3-g5-aX6" firstAttribute="top" secondItem="ZH2-V9-7pe" secondAttribute="bottom" id="aNi-Wu-zHo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Scanner" id="1qx-jn-RdR"/>
+                    <navigationItem key="navigationItem" title="Сканер штрихкодов" id="1qx-jn-RdR"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="codeNotFoundLabel" destination="L4h-xy-u1P" id="erf-SS-6cK"/>
@@ -202,9 +199,9 @@ not found.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgQ-wP-V5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="-1420"/>
+            <point key="canvasLocation" x="1005.6" y="-1420.8395802098951"/>
         </scene>
-        <!--Filters-->
+        <!--Фильтры и сортировка-->
         <scene sceneID="3d5-0i-kKb">
             <objects>
                 <viewController id="7aT-cC-0T0" sceneMemberID="viewController">
@@ -217,7 +214,7 @@ not found.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Filters" id="yH6-GB-f4p"/>
+                    <navigationItem key="navigationItem" title="Фильтры и сортировка" id="yH6-GB-f4p"/>
                     <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0j-KW-edE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,7 +239,7 @@ not found.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0S-sf-qgT">
-                                            <rect key="frame" x="372" y="14" width="34" height="36"/>
+                                            <rect key="frame" x="333" y="14" width="34" height="36"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="JX3-Ti-klK"/>
                                                 <constraint firstAttribute="width" constant="34" id="RrL-gA-ah5"/>
@@ -252,7 +249,7 @@ not found.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Bulb Model" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oca-G8-1pR">
-                                            <rect key="frame" x="16" y="8" width="348" height="25"/>
+                                            <rect key="frame" x="16" y="8" width="309" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="5sE-cx-o21"/>
                                             </constraints>
@@ -261,7 +258,7 @@ not found.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Brand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mco-dg-PMn">
-                                            <rect key="frame" x="16" y="33" width="348" height="22"/>
+                                            <rect key="frame" x="16" y="33" width="309" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="ea9-Rf-Ghd"/>
                                             </constraints>
@@ -434,28 +431,31 @@ not found.</string>
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Fe-FQ-qxH" customClass="LTTRoundButton">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Fe-FQ-qxH">
                                             <rect key="frame" x="150.5" y="4" width="74" height="54"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="74" id="SFl-LB-Hvq"/>
                                                 <constraint firstAttribute="height" constant="54" id="iNX-BF-0SK"/>
                                             </constraints>
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.87371779579999997" colorSpace="calibratedRGB"/>
                                             <state key="normal" image="graph"/>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLk-MG-vge" customClass="LTTRoundButton">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLk-MG-vge">
                                             <rect key="frame" x="263" y="4" width="74" height="54"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="74" id="Dkh-bf-taQ"/>
                                                 <constraint firstAttribute="height" constant="54" id="NHp-tK-WIv"/>
                                             </constraints>
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.87371779579999997" colorSpace="calibratedRGB"/>
                                             <state key="normal" image="colorIndex"/>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIB-s9-E2x" customClass="LTTRoundButton">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIB-s9-E2x">
                                             <rect key="frame" x="38" y="4" width="74" height="54"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="74" id="LOr-10-5z7"/>
                                                 <constraint firstAttribute="height" constant="54" id="ezh-RV-9eC"/>
                                             </constraints>
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.87371779579999997" colorSpace="calibratedRGB"/>
                                             <state key="normal" image="photo"/>
                                         </button>
                                     </subviews>
@@ -510,12 +510,13 @@ not found.</string>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="skf-kO-Umu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkA-6a-JY5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkA-6a-JY5">
                                 <rect key="frame" x="313" y="28" width="46" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="WtF-Vl-nAz"/>
                                     <constraint firstAttribute="height" constant="46" id="osH-Pf-0iw"/>
                                 </constraints>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.87371779579999997" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="cancel"/>
                                 <connections>
                                     <action selector="onCloseTouch:" destination="ZBv-Am-kgG" eventType="touchUpInside" id="bEd-vl-d3v"/>
@@ -542,11 +543,11 @@ not found.</string>
             </objects>
             <point key="canvasLocation" x="3844" y="110.19490254872565"/>
         </scene>
-        <!--Lamps-->
+        <!--Лампы-->
         <scene sceneID="mpr-FT-ghB">
             <objects>
                 <navigationController id="4go-Ob-ukY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Lamps" image="lamps" id="M8m-KR-d2x"/>
+                    <tabBarItem key="tabBarItem" title="Лампы" image="lamps" id="M8m-KR-d2x"/>
                     <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" id="otE-K6-5Md">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -560,7 +561,7 @@ not found.</string>
             </objects>
             <point key="canvasLocation" x="-890" y="112"/>
         </scene>
-        <!--About-->
+        <!--О программе-->
         <scene sceneID="10e-eW-5Gy">
             <objects>
                 <viewController id="hC2-b5-zEF" sceneMemberID="viewController">
@@ -586,18 +587,19 @@ not found.</string>
                             <constraint firstItem="Ihl-qx-4tP" firstAttribute="centerY" secondItem="H6N-Et-gqv" secondAttribute="centerY" id="zCl-FU-SdO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" image="about" id="0ap-pA-CNR"/>
-                    <navigationItem key="navigationItem" title="About" id="AkS-Aq-NNc"/>
+                    <tabBarItem key="tabBarItem" title="О программе" image="about" id="0ap-pA-CNR"/>
+                    <navigationItem key="navigationItem" title="О программе" id="AkS-Aq-NNc"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGq-bF-Iar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73" y="893"/>
         </scene>
-        <!--About-->
+        <!--О программе-->
         <scene sceneID="qXB-Ld-qgT">
             <objects>
                 <navigationController id="qgn-yC-vUG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="About" image="about" id="ca7-WG-MWG"/>
+                    <tabBarItem key="tabBarItem" title="О программе" image="about" id="ca7-WG-MWG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vt5-oL-swk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -610,11 +612,11 @@ not found.</string>
             </objects>
             <point key="canvasLocation" x="-890" y="893"/>
         </scene>
-        <!--Settings-->
+        <!--Обновление-->
         <scene sceneID="j91-uL-s40">
             <objects>
                 <navigationController id="TYJ-cX-SBa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="PfM-sO-02x"/>
+                    <tabBarItem key="tabBarItem" title="Обновление" image="settings" id="PfM-sO-02x"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rtg-UY-Gnv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -627,7 +629,7 @@ not found.</string>
             </objects>
             <point key="canvasLocation" x="-890" y="1826"/>
         </scene>
-        <!--Settings-->
+        <!--Обновление данных-->
         <scene sceneID="87c-fc-ACo">
             <objects>
                 <viewController id="nh9-DQ-kho" customClass="LTTSettingsViewController" sceneMemberID="viewController">
@@ -646,8 +648,8 @@ not found.</string>
                                     <constraint firstAttribute="width" constant="287" id="iFD-Rs-yDn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                <state key="normal" title="Reload from local CSV">
-                                    <color key="titleColor" red="0.31372549020000001" green="0.31030092590000002" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Перегрузить из встроенного CSV">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.87371779579999997" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onBtnTouch:" destination="nh9-DQ-kho" eventType="touchUpInside" id="NPk-Pk-N4e"/>
@@ -660,8 +662,9 @@ not found.</string>
                             <constraint firstItem="mnV-WI-hNe" firstAttribute="centerX" secondItem="2d9-xD-0g9" secondAttribute="centerX" id="Qco-2f-grE"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="9Gy-5v-HUB"/>
-                    <navigationItem key="navigationItem" title="Settings" id="PJ2-rl-clr"/>
+                    <tabBarItem key="tabBarItem" title="Обновление" image="settings" id="9Gy-5v-HUB"/>
+                    <navigationItem key="navigationItem" title="Обновление данных" id="PJ2-rl-clr"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiA-MX-l88" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

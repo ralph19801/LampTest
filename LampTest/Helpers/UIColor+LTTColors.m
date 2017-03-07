@@ -12,7 +12,12 @@
 
 + (UIColor *)ltt_orangeColor
 {
-    return [UIColor colorWithRed:255.f / 255.f green:182.f / 255.f blue:51.f / 255.f alpha:1];
+    return [UIColor colorWithRed:255.f / 255.f green:187.f / 255.f blue:0 alpha:1];
+}
+
++ (UIColor *)ltt_secondRowColor
+{
+    return [UIColor colorWithWhite:240.f/255.f alpha:1.f];
 }
 
 @end
