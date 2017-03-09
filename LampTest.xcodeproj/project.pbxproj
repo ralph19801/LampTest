@@ -130,22 +130,22 @@
 				FD2044031E5E0D4E00B64D8B /* LTTSettingsViewController.h */,
 				FD2044041E5E0D4E00B64D8B /* LTTSettingsViewController.m */,
 			);
-			name = Settings;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		FD07E4721E6EF52600064F52 /* LampList */ = {
 			isa = PBXGroup;
 			children = (
-				FD28268A1E5F897E001C36E7 /* LTTLampListViewController.h */,
-				FD28268B1E5F897F001C36E7 /* LTTLampListViewController.m */,
 				FD28268D1E5F8999001C36E7 /* LTTLampListTVC.h */,
 				FD28268E1E5F8999001C36E7 /* LTTLampListTVC.m */,
-				FD2826901E5F89B3001C36E7 /* LTTLampListViewModel.h */,
-				FD2826911E5F89B3001C36E7 /* LTTLampListViewModel.m */,
 				FD2826931E60A2AF001C36E7 /* LTTLampListTVCell.h */,
 				FD2826941E60A2AF001C36E7 /* LTTLampListTVCell.m */,
+				FD28268A1E5F897E001C36E7 /* LTTLampListViewController.h */,
+				FD28268B1E5F897F001C36E7 /* LTTLampListViewController.m */,
+				FD2826901E5F89B3001C36E7 /* LTTLampListViewModel.h */,
+				FD2826911E5F89B3001C36E7 /* LTTLampListViewModel.m */,
 			);
-			name = LampList;
+			path = LampList;
 			sourceTree = "<group>";
 		};
 		FD07E4731E6EF53000064F52 /* Scanner */ = {
@@ -154,35 +154,35 @@
 				FD2826961E60B70E001C36E7 /* LTTScannerViewController.h */,
 				FD2826971E60B70E001C36E7 /* LTTScannerViewController.m */,
 			);
-			name = Scanner;
+			path = Scanner;
 			sourceTree = "<group>";
 		};
 		FD07E4741E6EF53C00064F52 /* LampDetails */ = {
 			isa = PBXGroup;
 			children = (
-				FDFA98671E6CA84D00E97187 /* LTTLampDetailsViewController.h */,
-				FDFA98681E6CA84D00E97187 /* LTTLampDetailsViewController.m */,
-				FDFA986A1E6D34AE00E97187 /* LTTLampDetailsTVC.h */,
-				FDFA986B1E6D34AE00E97187 /* LTTLampDetailsTVC.m */,
-				FDFA986D1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.h */,
-				FDFA986E1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.m */,
 				FDFA98761E6DF7BB00E97187 /* LTTImageViewController.h */,
 				FDFA98771E6DF7BB00E97187 /* LTTImageViewController.m */,
+				FDFA986D1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.h */,
+				FDFA986E1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.m */,
+				FDFA986A1E6D34AE00E97187 /* LTTLampDetailsTVC.h */,
+				FDFA986B1E6D34AE00E97187 /* LTTLampDetailsTVC.m */,
+				FDFA98671E6CA84D00E97187 /* LTTLampDetailsViewController.h */,
+				FDFA98681E6CA84D00E97187 /* LTTLampDetailsViewController.m */,
 			);
-			name = LampDetails;
+			path = LampDetails;
 			sourceTree = "<group>";
 		};
 		FD07E4751E6EF57500064F52 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
-				FD5F6EE91E702BA2004B02B6 /* LTTFiltersViewController.h */,
-				FD5F6EEA1E702BA2004B02B6 /* LTTFiltersViewController.m */,
-				FD5F6EEC1E702BBE004B02B6 /* LTTFiltersTVC.h */,
-				FD5F6EED1E702BBE004B02B6 /* LTTFiltersTVC.m */,
 				FD5F6EEF1E702C3C004B02B6 /* LTTFilterTVCell.h */,
 				FD5F6EF01E702C3C004B02B6 /* LTTFilterTVCell.m */,
+				FD5F6EEC1E702BBE004B02B6 /* LTTFiltersTVC.h */,
+				FD5F6EED1E702BBE004B02B6 /* LTTFiltersTVC.m */,
+				FD5F6EE91E702BA2004B02B6 /* LTTFiltersViewController.h */,
+				FD5F6EEA1E702BA2004B02B6 /* LTTFiltersViewController.m */,
 			);
-			name = Filters;
+			path = Filters;
 			sourceTree = "<group>";
 		};
 		FD2043FF1E5E092100B64D8B /* Model */ = {
@@ -197,10 +197,10 @@
 		FD2044071E5F488500B64D8B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FD2044081E5F489E00B64D8B /* UIColor+LTTColors.h */,
-				FD2044091E5F489E00B64D8B /* UIColor+LTTColors.m */,
 				FDFA98711E6D679700E97187 /* LTTRoundButton.h */,
 				FDFA98721E6D679700E97187 /* LTTRoundButton.m */,
+				FD2044081E5F489E00B64D8B /* UIColor+LTTColors.h */,
+				FD2044091E5F489E00B64D8B /* UIColor+LTTColors.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -208,14 +208,14 @@
 		FD20440B1E5F49D900B64D8B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FD27AEB51E5DC6110033A04E /* Assets.xcassets */,
+				FD20440E1E5F4A5600B64D8B /* LaunchScreen.storyboard */,
+				FD20440C1E5F4A5600B64D8B /* Main.storyboard */,
 				FDFA98741E6D79B900E97187 /* default.db */,
+				FD2044121E5F4A6A00B64D8B /* led.csv */,
 				FD07E46B1E6EEF5F00064F52 /* logo@1x.png */,
 				FD07E46A1E6EEF5F00064F52 /* logo@2x.png */,
 				FD07E46C1E6EEF5F00064F52 /* logo@3x.png */,
-				FD2044121E5F4A6A00B64D8B /* led.csv */,
-				FD20440C1E5F4A5600B64D8B /* Main.storyboard */,
-				FD20440E1E5F4A5600B64D8B /* LaunchScreen.storyboard */,
-				FD27AEB51E5DC6110033A04E /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -224,9 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				FD27AEA81E5DC6110033A04E /* LampTest */,
+				D2FD037414164B2083C27CF9 /* Frameworks */,
 				FD27AEA71E5DC6110033A04E /* Products */,
 				9470B9AD2766F1BA5746F602 /* Pods */,
-				D2FD037414164B2083C27CF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -250,9 +250,9 @@
 				FD07E4731E6EF53000064F52 /* Scanner */,
 				FD07E4701E6EF4F300064F52 /* Settings */,
 				FD20440B1E5F49D900B64D8B /* Resources */,
+				FD27AEA91E5DC6110033A04E /* Supporting Files */,
 				FD27AEAC1E5DC6110033A04E /* AppDelegate.h */,
 				FD27AEAD1E5DC6110033A04E /* AppDelegate.m */,
-				FD27AEA91E5DC6110033A04E /* Supporting Files */,
 			);
 			path = LampTest;
 			sourceTree = "<group>";
@@ -260,21 +260,21 @@
 		FD27AEA91E5DC6110033A04E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FD27AEAA1E5DC6110033A04E /* main.m */,
 				FD27AEBA1E5DC6120033A04E /* Info.plist */,
 				FD2044061E5E0DD000B64D8B /* LampTest.pch */,
+				FD27AEAA1E5DC6110033A04E /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		FD4562B11E5F6D9100CC8074 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				FD5F6EF21E71C900004B02B6 /* LTTFilterManager.h */,
+				FD5F6EF31E71C900004B02B6 /* LTTFilterManager.m */,
 				FDFA98701E6D380E00E97187 /* LTTParameterNamesEnum.h */,
 				FD4562B21E5F6DAB00CC8074 /* LTTParser.h */,
 				FD4562B31E5F6DAB00CC8074 /* LTTParser.m */,
-				FD5F6EF21E71C900004B02B6 /* LTTFilterManager.h */,
-				FD5F6EF31E71C900004B02B6 /* LTTFilterManager.m */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -439,6 +439,7 @@
 				FD20440D1E5F4A5600B64D8B /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		FD20440E1E5F4A5600B64D8B /* LaunchScreen.storyboard */ = {
@@ -447,6 +448,7 @@
 				FD20440F1E5F4A5600B64D8B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -549,8 +551,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PV7G447LWR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = LampTest/LampTest.pch;
-				INFOPLIST_FILE = LampTest/Info.plist;
+				GCC_PREFIX_HEADER = "LampTest/Supporting Files/LampTest.pch";
+				INFOPLIST_FILE = "LampTest/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VMB.LampTest;
@@ -565,8 +567,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PV7G447LWR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = LampTest/LampTest.pch;
-				INFOPLIST_FILE = LampTest/Info.plist;
+				GCC_PREFIX_HEADER = "LampTest/Supporting Files/LampTest.pch";
+				INFOPLIST_FILE = "LampTest/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VMB.LampTest;
