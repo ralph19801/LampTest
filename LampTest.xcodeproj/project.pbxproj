@@ -26,6 +26,10 @@
 		FD2826951E60A2AF001C36E7 /* LTTLampListTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2826941E60A2AF001C36E7 /* LTTLampListTVCell.m */; };
 		FD2826981E60B70E001C36E7 /* LTTScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2826971E60B70E001C36E7 /* LTTScannerViewController.m */; };
 		FD4562B41E5F6DAB00CC8074 /* LTTParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4562B31E5F6DAB00CC8074 /* LTTParser.m */; };
+		FD5F6EEB1E702BA2004B02B6 /* LTTFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F6EEA1E702BA2004B02B6 /* LTTFiltersViewController.m */; };
+		FD5F6EEE1E702BBE004B02B6 /* LTTFiltersTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F6EED1E702BBE004B02B6 /* LTTFiltersTVC.m */; };
+		FD5F6EF11E702C3C004B02B6 /* LTTFilterTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F6EF01E702C3C004B02B6 /* LTTFilterTVCell.m */; };
+		FD5F6EF41E71C900004B02B6 /* LTTFilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F6EF31E71C900004B02B6 /* LTTFilterManager.m */; };
 		FDFA98691E6CA84D00E97187 /* LTTLampDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFA98681E6CA84D00E97187 /* LTTLampDetailsViewController.m */; };
 		FDFA986C1E6D34AE00E97187 /* LTTLampDetailsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFA986B1E6D34AE00E97187 /* LTTLampDetailsTVC.m */; };
 		FDFA986F1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFA986E1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.m */; };
@@ -69,6 +73,14 @@
 		FD2826971E60B70E001C36E7 /* LTTScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTScannerViewController.m; sourceTree = "<group>"; };
 		FD4562B21E5F6DAB00CC8074 /* LTTParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTParser.h; sourceTree = "<group>"; };
 		FD4562B31E5F6DAB00CC8074 /* LTTParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTParser.m; sourceTree = "<group>"; };
+		FD5F6EE91E702BA2004B02B6 /* LTTFiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTFiltersViewController.h; sourceTree = "<group>"; };
+		FD5F6EEA1E702BA2004B02B6 /* LTTFiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTFiltersViewController.m; sourceTree = "<group>"; };
+		FD5F6EEC1E702BBE004B02B6 /* LTTFiltersTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTFiltersTVC.h; sourceTree = "<group>"; };
+		FD5F6EED1E702BBE004B02B6 /* LTTFiltersTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTFiltersTVC.m; sourceTree = "<group>"; };
+		FD5F6EEF1E702C3C004B02B6 /* LTTFilterTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTFilterTVCell.h; sourceTree = "<group>"; };
+		FD5F6EF01E702C3C004B02B6 /* LTTFilterTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTFilterTVCell.m; sourceTree = "<group>"; };
+		FD5F6EF21E71C900004B02B6 /* LTTFilterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTFilterManager.h; sourceTree = "<group>"; };
+		FD5F6EF31E71C900004B02B6 /* LTTFilterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTFilterManager.m; sourceTree = "<group>"; };
 		FDFA98671E6CA84D00E97187 /* LTTLampDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTLampDetailsViewController.h; sourceTree = "<group>"; };
 		FDFA98681E6CA84D00E97187 /* LTTLampDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTLampDetailsViewController.m; sourceTree = "<group>"; };
 		FDFA986A1E6D34AE00E97187 /* LTTLampDetailsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTLampDetailsTVC.h; sourceTree = "<group>"; };
@@ -110,6 +122,67 @@
 				ACA77AE9F959321FE61FCB75 /* libPods-LampTest.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD07E4701E6EF4F300064F52 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FD2044031E5E0D4E00B64D8B /* LTTSettingsViewController.h */,
+				FD2044041E5E0D4E00B64D8B /* LTTSettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		FD07E4721E6EF52600064F52 /* LampList */ = {
+			isa = PBXGroup;
+			children = (
+				FD28268A1E5F897E001C36E7 /* LTTLampListViewController.h */,
+				FD28268B1E5F897F001C36E7 /* LTTLampListViewController.m */,
+				FD28268D1E5F8999001C36E7 /* LTTLampListTVC.h */,
+				FD28268E1E5F8999001C36E7 /* LTTLampListTVC.m */,
+				FD2826901E5F89B3001C36E7 /* LTTLampListViewModel.h */,
+				FD2826911E5F89B3001C36E7 /* LTTLampListViewModel.m */,
+				FD2826931E60A2AF001C36E7 /* LTTLampListTVCell.h */,
+				FD2826941E60A2AF001C36E7 /* LTTLampListTVCell.m */,
+			);
+			name = LampList;
+			sourceTree = "<group>";
+		};
+		FD07E4731E6EF53000064F52 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				FD2826961E60B70E001C36E7 /* LTTScannerViewController.h */,
+				FD2826971E60B70E001C36E7 /* LTTScannerViewController.m */,
+			);
+			name = Scanner;
+			sourceTree = "<group>";
+		};
+		FD07E4741E6EF53C00064F52 /* LampDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FDFA98671E6CA84D00E97187 /* LTTLampDetailsViewController.h */,
+				FDFA98681E6CA84D00E97187 /* LTTLampDetailsViewController.m */,
+				FDFA986A1E6D34AE00E97187 /* LTTLampDetailsTVC.h */,
+				FDFA986B1E6D34AE00E97187 /* LTTLampDetailsTVC.m */,
+				FDFA986D1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.h */,
+				FDFA986E1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.m */,
+				FDFA98761E6DF7BB00E97187 /* LTTImageViewController.h */,
+				FDFA98771E6DF7BB00E97187 /* LTTImageViewController.m */,
+			);
+			name = LampDetails;
+			sourceTree = "<group>";
+		};
+		FD07E4751E6EF57500064F52 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				FD5F6EE91E702BA2004B02B6 /* LTTFiltersViewController.h */,
+				FD5F6EEA1E702BA2004B02B6 /* LTTFiltersViewController.m */,
+				FD5F6EEC1E702BBE004B02B6 /* LTTFiltersTVC.h */,
+				FD5F6EED1E702BBE004B02B6 /* LTTFiltersTVC.m */,
+				FD5F6EEF1E702C3C004B02B6 /* LTTFilterTVCell.h */,
+				FD5F6EF01E702C3C004B02B6 /* LTTFilterTVCell.m */,
+			);
+			name = Filters;
 			sourceTree = "<group>";
 		};
 		FD2043FF1E5E092100B64D8B /* Model */ = {
@@ -168,33 +241,18 @@
 		FD27AEA81E5DC6110033A04E /* LampTest */ = {
 			isa = PBXGroup;
 			children = (
+				FD07E4751E6EF57500064F52 /* Filters */,
 				FD2044071E5F488500B64D8B /* Helpers */,
+				FD07E4741E6EF53C00064F52 /* LampDetails */,
+				FD07E4721E6EF52600064F52 /* LampList */,
 				FD2043FF1E5E092100B64D8B /* Model */,
 				FD4562B11E5F6D9100CC8074 /* Parser */,
+				FD07E4731E6EF53000064F52 /* Scanner */,
+				FD07E4701E6EF4F300064F52 /* Settings */,
 				FD20440B1E5F49D900B64D8B /* Resources */,
 				FD27AEAC1E5DC6110033A04E /* AppDelegate.h */,
 				FD27AEAD1E5DC6110033A04E /* AppDelegate.m */,
 				FD27AEA91E5DC6110033A04E /* Supporting Files */,
-				FD2044031E5E0D4E00B64D8B /* LTTSettingsViewController.h */,
-				FD2044041E5E0D4E00B64D8B /* LTTSettingsViewController.m */,
-				FD28268A1E5F897E001C36E7 /* LTTLampListViewController.h */,
-				FD28268B1E5F897F001C36E7 /* LTTLampListViewController.m */,
-				FD28268D1E5F8999001C36E7 /* LTTLampListTVC.h */,
-				FD28268E1E5F8999001C36E7 /* LTTLampListTVC.m */,
-				FD2826901E5F89B3001C36E7 /* LTTLampListViewModel.h */,
-				FD2826911E5F89B3001C36E7 /* LTTLampListViewModel.m */,
-				FD2826931E60A2AF001C36E7 /* LTTLampListTVCell.h */,
-				FD2826941E60A2AF001C36E7 /* LTTLampListTVCell.m */,
-				FD2826961E60B70E001C36E7 /* LTTScannerViewController.h */,
-				FD2826971E60B70E001C36E7 /* LTTScannerViewController.m */,
-				FDFA98671E6CA84D00E97187 /* LTTLampDetailsViewController.h */,
-				FDFA98681E6CA84D00E97187 /* LTTLampDetailsViewController.m */,
-				FDFA986A1E6D34AE00E97187 /* LTTLampDetailsTVC.h */,
-				FDFA986B1E6D34AE00E97187 /* LTTLampDetailsTVC.m */,
-				FDFA986D1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.h */,
-				FDFA986E1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.m */,
-				FDFA98761E6DF7BB00E97187 /* LTTImageViewController.h */,
-				FDFA98771E6DF7BB00E97187 /* LTTImageViewController.m */,
 			);
 			path = LampTest;
 			sourceTree = "<group>";
@@ -215,6 +273,8 @@
 				FDFA98701E6D380E00E97187 /* LTTParameterNamesEnum.h */,
 				FD4562B21E5F6DAB00CC8074 /* LTTParser.h */,
 				FD4562B31E5F6DAB00CC8074 /* LTTParser.m */,
+				FD5F6EF21E71C900004B02B6 /* LTTFilterManager.h */,
+				FD5F6EF31E71C900004B02B6 /* LTTFilterManager.m */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -349,12 +409,16 @@
 			files = (
 				FDFA98691E6CA84D00E97187 /* LTTLampDetailsViewController.m in Sources */,
 				FD27AEAE1E5DC6110033A04E /* AppDelegate.m in Sources */,
+				FD5F6EF41E71C900004B02B6 /* LTTFilterManager.m in Sources */,
 				FD2826981E60B70E001C36E7 /* LTTScannerViewController.m in Sources */,
 				FDFA986F1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.m in Sources */,
+				FD5F6EEE1E702BBE004B02B6 /* LTTFiltersTVC.m in Sources */,
+				FD5F6EF11E702C3C004B02B6 /* LTTFilterTVCell.m in Sources */,
 				FD28268C1E5F897F001C36E7 /* LTTLampListViewController.m in Sources */,
 				FD2826921E5F89B3001C36E7 /* LTTLampListViewModel.m in Sources */,
 				FD28268F1E5F8999001C36E7 /* LTTLampListTVC.m in Sources */,
 				FDFA986C1E6D34AE00E97187 /* LTTLampDetailsTVC.m in Sources */,
+				FD5F6EEB1E702BA2004B02B6 /* LTTFiltersViewController.m in Sources */,
 				FDFA98731E6D679700E97187 /* LTTRoundButton.m in Sources */,
 				FDFA98781E6DF7BB00E97187 /* LTTImageViewController.m in Sources */,
 				FD2826951E60A2AF001C36E7 /* LTTLampListTVCell.m in Sources */,
