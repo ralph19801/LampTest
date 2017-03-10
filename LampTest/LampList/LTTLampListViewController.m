@@ -10,6 +10,8 @@
 #import "LTTLampListTVC.h"
 #import "LTTLampListViewModel.h"
 #import "LTTLampDetailsViewController.h"
+#import "LTTFilterManager.h"
+#import "LTTMainAssembly.h"
 
 @interface LTTLampListViewController ()
 
@@ -34,7 +36,8 @@
 {
     if ([segue.identifier isEqualToString:@"LampListEmbedTVC"])
     {
-        self.viewModel = [[LTTLampListViewModel alloc] init];
+        self.viewModel = [[LTTLampListViewModel alloc] initWithFilterManager:
+                          [[TyphoonComponentFactory defaultFactory] filterManager]];
 
         self.tableViewController = segue.destinationViewController;
         self.tableViewController.viewModel = self.viewModel;

@@ -11,6 +11,8 @@
 
 @interface LTTLampListTVC ()
 
+@property (nonatomic, strong) RLMNotificationToken *notificationToken;
+
 @end
 
 @implementation LTTLampListTVC
@@ -20,9 +22,36 @@
     _viewModel = viewModel;
     
     @weakify(self);
-    [RACObserve(self.viewModel, lamps) subscribeNext:^(id x) {
-        @strongify(self);
-        [self.tableView reloadData];
+//    self.notificationToken = [self.viewModel.lamps addNotificationBlock:^(RLMResults<LTTLamp *> *results, RLMCollectionChange *changes, NSError *error) {
+//        @strongify(self);
+//        if (error) {
+//            NSLog(@"Failed to open Realm on background worker: %@", error);
+//            return;
+//        }
+//        
+//        UITableView *tableView = self.tableView;
+//        // Initial run of the query will pass nil for the change information
+//        if ( ! changes ) {
+//            [tableView reloadData];
+//            return;
+//        }
+//        
+//        // Query results have changed, so apply them to the UITableView
+//        [tableView beginUpdates];
+//        [tableView deleteRowsAtIndexPaths:[changes deletionsInSection:0]
+//                         withRowAnimation:UITableViewRowAnimationAutomatic];
+//        [tableView insertRowsAtIndexPaths:[changes insertionsInSection:0]
+//                         withRowAnimation:UITableViewRowAnimationAutomatic];
+//        [tableView reloadRowsAtIndexPaths:[changes modificationsInSection:0]
+//                         withRowAnimation:UITableViewRowAnimationAutomatic];
+//        [tableView endUpdates];
+//    }];
+    
+    [[RACObserve(self.viewModel, lamps) deliverOnMainThread]
+     subscribeNext:^(id x) {
+         @strongify(self);
+         [self.tableView reloadData];
+         [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     }];
 }
 

@@ -10,9 +10,14 @@
 
 @implementation LTTFilterManager
 
-//+ (instancetype)sharedManager
-//{
-//    
-//}
+- (instancetype)init
+{
+    if (self = [super init]) {
+        _sort = LTTSortRating;
+    }
+    return self;
+}
+
+
 
 @end

@@ -6,10 +6,10 @@
 //  Copyright © 2017 VMB. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "LTTSortEnum.h"
 
 @interface LTTFilterManager : NSObject
 
-+ (instancetype)sharedManager;
+@property (nonatomic, assign) LTTSort sort;
 
 @end

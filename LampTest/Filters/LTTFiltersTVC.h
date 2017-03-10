@@ -6,8 +6,10 @@
 //  Copyright © 2017 VMB. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@class LTTFilterManager;
 
 @interface LTTFiltersTVC : UITableViewController
+
+@property (nonatomic, strong) LTTFilterManager *filterManager;
 
 @end

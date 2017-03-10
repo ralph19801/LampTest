@@ -6,14 +6,18 @@
 //  Copyright © 2017 VMB. All rights reserved.
 //
 
-typedef NS_ENUM(NSUInteger, LTTSort) {
-    LTTSortUnknown = 0,
-    LTTSortBrandModel,
-    LTTSortRating
-};
-
 #import "LTTFiltersTVC.h"
+#import "LTTFilterManager.h"
+
 #import "LTTFilterTVCell.h"
+#import "LTTSortEnum.h"
+
+typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
+    LTTFiltersSectionUnknown = -1,
+    LTTFiltersSectionSort = 0,
+    LTTFiltersSectionActive = 1,
+    LTTFiltersSectionPool
+};
 
 @interface LTTFiltersTVC ()
 
@@ -23,7 +27,8 @@ typedef NS_ENUM(NSUInteger, LTTSort) {
 
 @implementation LTTFiltersTVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.sections = @[
@@ -64,6 +69,7 @@ typedef NS_ENUM(NSUInteger, LTTSort) {
     return [self.sections[section] count];
 }
 
+#pragma mark - Cell creation
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
@@ -77,7 +83,15 @@ typedef NS_ENUM(NSUInteger, LTTSort) {
 
 - (UITableViewCell *)sortCellForSort:(LTTSort)sort tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
 {
-    LTTFilterTVCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LTTFilterTVCell" forIndexPath:indexPath];
+    NSString *identifier = nil;
+    if (self.filterManager.sort == sort) {
+        identifier = @"LTTSortOn";
+    }
+    else {
+        identifier = @"LTTSortOff";
+    }
+    
+    LTTFilterTVCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     switch (sort) {
         case LTTSortUnknown:
@@ -101,9 +115,25 @@ typedef NS_ENUM(NSUInteger, LTTSort) {
     return cell;
 }
 
+#pragma mark - Selection
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == LTTFiltersSectionSort) {
+        [self didSelectSortForTableView:tableView indexPath:indexPath];
+    }
+}
+
+- (void)didSelectSortForTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
+{
+    LTTSort sort = [self.sections[indexPath.section][indexPath.row] integerValue];
+    if (sort == self.filterManager.sort) {
+        return;
+    }
+    
+    self.filterManager.sort = sort;
+    [tableView reloadData];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

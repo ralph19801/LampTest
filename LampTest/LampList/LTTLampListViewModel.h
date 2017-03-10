@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "LTTLamp.h"
 
+@class LTTFilterManager;
+
 @interface LTTLampListViewModel : NSObject
 
-@property (nonatomic, strong) RLMResults <LTTLamp *> *lamps;
+@property (nonatomic, strong, readonly) RLMResults <LTTLamp *> *lamps;
+
+- (instancetype)initWithFilterManager:(LTTFilterManager *)filterManager;
 
 @end

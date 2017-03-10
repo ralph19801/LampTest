@@ -48,7 +48,7 @@ static NSInteger const LTTLampImagesCell = -1;
                   @(LTTLampDurability),
                   @(LTTLampPower),
                   @(LTTLampBrightness),
-                  @(LTTLampEffectivity), // нет в CSV
+                  @(LTTLampEffectivity),
                   @(LTTLampPowerEquivalent),
                   @(LTTLampColor),
                   @(LTTLampNominalCRI),
@@ -90,7 +90,7 @@ static NSInteger const LTTLampImagesCell = -1;
                   @(LTTLampDurability) : @"заявленный срок службы, час",
                   @(LTTLampPower) : @"измеренная мощность, Вт",
                   @(LTTLampBrightness) : @"измеренный световой поток, Лм",
-                  @(LTTLampEffectivity) : @"эффективность (количество люмен на ватт)", // нет в CSV
+                  @(LTTLampEffectivity) : @"эффективность (количество люмен на ватт)",
                   @(LTTLampPowerEquivalent) : @"измеренный эквивалент мощности, Вт",
                   @(LTTLampColor) : @"измеренная цветовая температура, К",
                   @(LTTLampNominalCRI) : @"заявленный CRI, не менее",

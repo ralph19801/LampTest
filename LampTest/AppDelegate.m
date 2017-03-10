@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LTTMainAssembly.h"
 #import "UIColor+LTTColors.h"
 
 @interface AppDelegate ()
@@ -18,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    TyphoonComponentFactory *factory = [[TyphoonBlockComponentFactory alloc] initWithAssembly:[LTTMainAssembly assembly]];
+    [factory makeDefault];
+    
     [self setupDatabase];
     [self setupAppearance];
     
