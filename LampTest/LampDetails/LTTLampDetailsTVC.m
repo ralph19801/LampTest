@@ -21,7 +21,6 @@ static NSInteger const LTTLampImagesCell = -1;
 @interface LTTLampDetailsTVC ()
 
 @property (nonatomic, strong) NSArray *rows;
-@property (nonatomic, strong) NSDictionary *rowNames;
 
 @end
 
@@ -72,48 +71,6 @@ static NSInteger const LTTLampImagesCell = -1;
                   @(LTTLampR9),
                   @(LTTLampPF),*/
                   ];
-    
-    
-    self.rowNames = @{
-                  @(LTTLampBrand) : @"изготовитель",
-                  @(LTTLampModel) : @"модель или артикул",
-                  @(LTTLampCode) : @"штрихкод",
-                  @(LTTLampBase) : @"тип цоколя",
-                  @(LTTLampShape) : @"вид",
-                  @(LTTLampType) : @"тип",
-                  @(LTTLampSubtype) : @"подтип",
-                  @(LTTLampMatte) : @"матовость",
-                  @(LTTLampNominalPower) : @"заявленная мощность, Вт",
-                  @(LTTLampNominalBrightness) : @"заявленный световой поток, Лм",
-                  @(LTTLampNominalPowerEquivalent) : @"заявленный эквивалент, Вт",
-                  @(LTTLampNominalColor) : @"заявленная цветовая температура, К",
-                  @(LTTLampDurability) : @"заявленный срок службы, час",
-                  @(LTTLampPower) : @"измеренная мощность, Вт",
-                  @(LTTLampBrightness) : @"измеренный световой поток, Лм",
-                  @(LTTLampEffectivity) : @"эффективность (количество люмен на ватт)",
-                  @(LTTLampPowerEquivalent) : @"измеренный эквивалент мощности, Вт",
-                  @(LTTLampColor) : @"измеренная цветовая температура, К",
-                  @(LTTLampNominalCRI) : @"заявленный CRI, не менее",
-                  @(LTTLampCRI) : @"измеренный индекс цветопередачи (CRI)",
-                  @(LTTLampAngle) : @"измеренный угол освещения, град.",
-                  @(LTTLampPulsation) : @"измеренный коэффициент пульсации, %",
-                  @(LTTLampSwitch) : @"работа с выключателем, имеющим индикатор",
-                  @(LTTLampDimmer) : @"диммирование",
-                  @(LTTLampDiameter) : @"диаметр лампы, мм",
-                  @(LTTLampHeight) : @"высота лампы, мм",
-                  @(LTTLampVoltage) : @"заявленное рабочее напряжение, В",
-                  @(LTTLampVoltageMin) : @"измеренное минимальное напряжение, В",
-                  @(LTTLampPriceRub) : @"цена в рублях",
-                  @(LTTLampPriceUsd) : @"цена в долларах",
-                  @(LTTLampMade) : @"дата изготовления лампы",
-                  @(LTTLampDate) : @"дата тестирования",
-                  @(LTTLampActual) : @"актуальность лампы",
-                  @(LTTLampRating) : @"общая оценка параметров лампы",
-/*
-                  @(LTTLampWarranty) : @"",
-                  @(LTTLampR9) : @"",
-                  @(LTTLampPF) : @"",*/
-    };
 }
 
 #pragma mark - Table view data source
@@ -179,8 +136,8 @@ static NSInteger const LTTLampImagesCell = -1;
 
 - (LTTLampDetailsParameterTVCell *)parameterCellWithParam:(LTTParserNamesToProperties)param tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
 {
-    NSString *paramName = self.rowNames[@(param)];
-    LTTLampParameterTypes paramType = [self.lamp typeOfParameter:param];
+    NSString *paramName = [LTTLamp nameForParameter:param];
+    LTTLampParameterTypes paramType = [LTTLamp typeOfParameter:param];
     id paramValue = [self.lamp valueOfParameter:param];
     
     NSString *identifier = nil;
@@ -267,12 +224,20 @@ static NSInteger const LTTLampImagesCell = -1;
     return [NSString stringWithFormat:@"http://lamptest.ru/images/color-index/%@.png", [self baseModel]];
 }
 
-- (NSString *)baseModel  // "GE Classic C35/40W-F-SES-284251" -> "ge-classic-c35-40w-f-ses-284251"
-{
-    return [[[[NSString stringWithFormat:@"%@-%@", self.lamp.brand, self.lamp.model]
-            componentsSeparatedByCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]]
-            componentsJoinedByString:@"-"]
-            lowercaseString];
+- (NSString *)baseModel  // "GE Classic (C35)/40.W-F-S.E.S-284251" -> "ge-classic-c35-40w-f-ses-284251"
+{ // вт -> vt
+    NSString *rawBrandModel = [NSString stringWithFormat:@"%@-%@", self.lamp.brand, self.lamp.model];
+    NSString *strippedOfPunctuation = [[rawBrandModel componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@".,:;'()"]] componentsJoinedByString:@""];
+    NSString *replacedWithHyphen = [[[strippedOfPunctuation componentsSeparatedByCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]] componentsJoinedByString:@"-"]
+               lowercaseString];
+    
+    // транслитерация
+    NSMutableString *buffer = [replacedWithHyphen mutableCopy];
+    CFMutableStringRef bufferRef = (__bridge CFMutableStringRef)buffer;
+    CFStringTransform(bufferRef, NULL, kCFStringTransformToLatin, false);
+    CFStringTransform(bufferRef, NULL, kCFStringTransformStripDiacritics, false);
+    
+    return buffer;
 }
 
 @end

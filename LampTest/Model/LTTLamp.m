@@ -10,7 +10,7 @@
 
 @implementation LTTLamp
 
-- (LTTLampParameterTypes)typeOfParameter:(LTTParserNamesToProperties)param
++ (LTTLampParameterTypes)typeOfParameter:(LTTParserNamesToProperties)param
 {
     switch (param) {
         case LTTLampUnknown:
@@ -35,6 +35,8 @@
         case LTTLampAngle:
         case LTTLampSwitch:
         case LTTLampR9:
+        case LTTLampVoltageStart:
+        case LTTLampVoltageEnd:
             return LTTLampParameterTypeInteger;
             break;
             
@@ -202,7 +204,124 @@
             
         case LTTLampDate:
             return self.date;
+            
+        case LTTLampVoltageStart:
+            return @(self.voltageStart);
+            
+        case LTTLampVoltageEnd:
+            return @(self.voltageEnd);
     }
+}
+
++ (NSString *)nameForParameter:(LTTParserNamesToProperties)param
+{
+    static NSDictionary *rowNames;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        rowNames = @{
+                  @(LTTLampBrand) : @"изготовитель",
+                  @(LTTLampModel) : @"модель или артикул",
+                  @(LTTLampCode) : @"штрихкод",
+                  @(LTTLampBase) : @"тип цоколя",
+                  @(LTTLampShape) : @"вид",
+                  @(LTTLampType) : @"тип",
+                  @(LTTLampSubtype) : @"подтип",
+                  @(LTTLampMatte) : @"матовость",
+                  @(LTTLampNominalPower) : @"заявленная мощность, Вт",
+                  @(LTTLampNominalBrightness) : @"заявленный световой поток, Лм",
+                  @(LTTLampNominalPowerEquivalent) : @"заявленный эквивалент, Вт",
+                  @(LTTLampNominalColor) : @"заявленная цветовая температура, К",
+                  @(LTTLampDurability) : @"заявленный срок службы, час",
+                  @(LTTLampPower) : @"измеренная мощность, Вт",
+                  @(LTTLampBrightness) : @"измеренный световой поток, Лм",
+                  @(LTTLampEffectivity) : @"эффективность (количество люмен на ватт)",
+                  @(LTTLampPowerEquivalent) : @"измеренный эквивалент мощности, Вт",
+                  @(LTTLampColor) : @"измеренная цветовая температура, К",
+                  @(LTTLampNominalCRI) : @"заявленный CRI, не менее",
+                  @(LTTLampCRI) : @"измеренный индекс цветопередачи (CRI)",
+                  @(LTTLampAngle) : @"измеренный угол освещения, град.",
+                  @(LTTLampPulsation) : @"измеренный коэффициент пульсации, %",
+                  @(LTTLampSwitch) : @"работа с выключателем, имеющим индикатор",
+                  @(LTTLampDimmer) : @"диммирование",
+                  @(LTTLampDiameter) : @"диаметр лампы, мм",
+                  @(LTTLampHeight) : @"высота лампы, мм",
+                  @(LTTLampVoltage) : @"заявленное рабочее напряжение, В",
+                  @(LTTLampVoltageMin) : @"измеренное минимальное напряжение, В",
+                  @(LTTLampPriceRub) : @"цена в рублях",
+                  @(LTTLampPriceUsd) : @"цена в долларах",
+                  @(LTTLampMade) : @"дата изготовления лампы",
+                  @(LTTLampDate) : @"дата тестирования",
+                  @(LTTLampActual) : @"актуальность лампы",
+                  @(LTTLampRating) : @"общая оценка параметров лампы",
+                  
+                  @(LTTLampWarranty) : @"гарантия",
+                  @(LTTLampR9) : @"R9",
+                  @(LTTLampPF) : @"PF",
+            };
+    });
+    
+    NSString *rowName = rowNames[@(param)];
+    if (rowName) {
+        return rowName;
+    }
+    
+    return @"";
+}
+
++ (NSString *)propertyForParameter:(LTTParserNamesToProperties)param
+{
+    static NSDictionary *rowNames;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        rowNames = @{
+                     @(LTTLampBrand) : @"brand",
+                     @(LTTLampModel) : @"model",
+                     @(LTTLampCode) : @"code",
+                     @(LTTLampBase) : @"base",
+                     @(LTTLampShape) : @"shape",
+                     @(LTTLampType) : @"type",
+                     @(LTTLampSubtype) : @"subtype",
+                     @(LTTLampMatte) : @"matte",
+                     @(LTTLampNominalPower) : @"nominalPower",
+                     @(LTTLampNominalBrightness) : @"nominalBrightness",
+                     @(LTTLampNominalPowerEquivalent) : @"nominalPowerEquivalent",
+                     @(LTTLampNominalColor) : @"nominalColor",
+                     @(LTTLampDurability) : @"durability",
+                     @(LTTLampPower) : @"power",
+                     @(LTTLampBrightness) : @"brightness",
+                     @(LTTLampEffectivity) : @"effectivity",
+                     @(LTTLampPowerEquivalent) : @"powerEquivalent",
+                     @(LTTLampColor) : @"color",
+                     @(LTTLampNominalCRI) : @"nominalCRI",
+                     @(LTTLampCRI) : @"CRI",
+                     @(LTTLampAngle) : @"angle",
+                     @(LTTLampPulsation) : @"pulsation",
+                     @(LTTLampSwitch) : @"switch",
+                     @(LTTLampDimmer) : @"dimmerAllowed",
+                     @(LTTLampDiameter) : @"diameter",
+                     @(LTTLampHeight) : @"height",
+                     @(LTTLampVoltageStart) : @"voltageStart",
+                     @(LTTLampVoltageEnd) : @"voltageEnd",
+                     @(LTTLampVoltageMin) : @"voltageMin",
+                     @(LTTLampPriceRub) : @"priceRub",
+                     @(LTTLampPriceUsd) : @"priceUsd",
+                     @(LTTLampMade) : @"made",
+                     @(LTTLampDate) : @"date",
+                     @(LTTLampActual) : @"actual",
+                     @(LTTLampRating) : @"rating",
+                     
+                     @(LTTLampWarranty) : @"warranty",
+                     @(LTTLampR9) : @"R9",
+                     @(LTTLampPF) : @"PF",
+                     };
+    });
+    
+    NSString *rowName = rowNames[@(param)];
+    if (rowName) {
+        return rowName;
+    }
+    
+    return @"";
 }
 
 @end

@@ -61,7 +61,9 @@ typedef NS_ENUM(NSUInteger, LTTLampParameterTypes) {
 @property (nonatomic, assign) NSInteger voltageMin;     // измеренное минимальное напряжение, В
 @property (nonatomic, assign) NSInteger warranty;       // гарантия, мес
 
-- (LTTLampParameterTypes)typeOfParameter:(LTTParserNamesToProperties)param;
++ (LTTLampParameterTypes)typeOfParameter:(LTTParserNamesToProperties)param;
 - (id)valueOfParameter:(LTTParserNamesToProperties)param;
++ (NSString *)nameForParameter:(LTTParserNamesToProperties)param;
++ (NSString *)propertyForParameter:(LTTParserNamesToProperties)param;
 
 @end

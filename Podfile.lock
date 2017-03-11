@@ -48,7 +48,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.6.3)
   - CHCSVParser (~> 2.1.0)
   - Mantle (~> 2.1.0)
-  - MTBBarcodeScanner
+  - MTBBarcodeScanner (~> 3.1.0)
   - ReactiveCocoa (= 2.5)
   - Realm (~> 2.1.2)
   - Typhoon (~> 4.0.0)
@@ -62,6 +62,6 @@ SPEC CHECKSUMS:
   Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
   Typhoon: 1fcbf6417e7040e645c910e7004336c51c916fb3
 
-PODFILE CHECKSUM: f320cebe147d78b32cacafb2168e02787a62a676
+PODFILE CHECKSUM: 5b3daf57960cadb849d1af7cd1a1dd5fc6dfded3
 
 COCOAPODS: 1.1.1

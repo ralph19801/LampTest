@@ -49,6 +49,8 @@ typedef NS_ENUM(NSUInteger, LTTParserNamesToProperties) {
     LTTLampDate,
     LTTLampRating,
     LTTLampActual,
+    LTTLampVoltageStart,
+    LTTLampVoltageEnd,
     LTTLampVoltageMin,
     LTTLampEffectivity
 };

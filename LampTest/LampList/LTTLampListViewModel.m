@@ -34,25 +34,39 @@
 
 - (void)setupDependencies
 {
-    [RACObserve(self.filterManager, sort) subscribeNext:^(id x) {
-        LTTSort sort = [x integerValue];
+    [[RACSignal combineLatest:@[RACObserve(self.filterManager, sort),
+                                RACObserve(self.filterManager, predicateString)]]
+     subscribeNext:^(RACTuple *tuple) {
+         
+         LTTSort sort = [tuple.first integerValue];
+         NSString *predicateString = tuple.second;
+         
+//         NSLog(@"predicate changed: %@", predicateString);
         
-        switch (sort) {
-            case LTTSortUnknown:
-                break;
+         RLMResults *lamps = nil;
+         if (predicateString.length > 0) {
+             lamps = [LTTLamp objectsWhere:predicateString];
+         }
+         else {
+             lamps = [LTTLamp allObjects];
+         }
+         
+         switch (sort) {
+             case LTTSortUnknown:
+                 break;
                 
-            case LTTSortBrandModel:
-                self.lamps = [[LTTLamp allObjects] sortedResultsUsingDescriptors:@[[RLMSortDescriptor sortDescriptorWithProperty:@"brand" ascending:YES],
-                                                                               [RLMSortDescriptor sortDescriptorWithProperty:@"model" ascending:YES]]];
-                break;
+             case LTTSortBrandModel:
+                 self.lamps = [lamps sortedResultsUsingDescriptors:@[[RLMSortDescriptor sortDescriptorWithProperty:@"brand" ascending:YES],
+                                                                                    [RLMSortDescriptor sortDescriptorWithProperty:@"model" ascending:YES]]];
+                 break;
                 
-            case LTTSortRating:
-                self.lamps = [[LTTLamp allObjects] sortedResultsUsingDescriptors:@[[RLMSortDescriptor sortDescriptorWithProperty:@"rating" ascending:NO],
-                                                                               [RLMSortDescriptor sortDescriptorWithProperty:@"brand" ascending:YES],
-                                                                               [RLMSortDescriptor sortDescriptorWithProperty:@"model" ascending:YES]]];
-                break;
-        }
-    }];
+             case LTTSortRating:
+                 self.lamps = [lamps sortedResultsUsingDescriptors:@[[RLMSortDescriptor sortDescriptorWithProperty:@"rating" ascending:NO],
+                                                                                    [RLMSortDescriptor sortDescriptorWithProperty:@"brand" ascending:YES],
+                                                                                    [RLMSortDescriptor sortDescriptorWithProperty:@"model" ascending:YES]]];
+                 break;
+         }
+     }];
 }
 
 @end

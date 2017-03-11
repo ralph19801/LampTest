@@ -7,9 +7,20 @@
 //
 
 #import "LTTSortEnum.h"
+#import "LTTParameterNamesEnum.h"
+
+@class LTTFilter;
 
 @interface LTTFilterManager : NSObject
 
 @property (nonatomic, assign) LTTSort sort;
+@property (nonatomic, strong, readonly) NSString *predicateString;
+
+@property (nonatomic, strong, readonly) NSArray <LTTFilter *> *activeFilters;
+@property (nonatomic, strong, readonly) NSArray <LTTFilter *> *filtersPool;
+
+- (void)activateFilterBool:(LTTParserNamesToProperties)param;
+
+- (void)dropFilter:(LTTParserNamesToProperties)param;
 
 @end

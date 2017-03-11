@@ -8,9 +8,17 @@
 
 #import "LTTFiltersTVC.h"
 #import "LTTFilterManager.h"
+#import "LTTFilter.h"
 
 #import "LTTFilterTVCell.h"
 #import "LTTSortEnum.h"
+#import "LTTLampDetailsParameterTVCell.h"
+
+static NSString *const LTTFiltersUnsupportedCell = @"LTTFilterUnsupported";
+static NSString *const LTTFiltersSortOnCell = @"LTTSortOn";
+static NSString *const LTTFiltersSortOffCell = @"LTTSortOff";
+static NSString *const LTTFiltersBoolOnCell = @"LTTFilterBoolOn";
+static NSString *const LTTFiltersBoolOffCell = @"LTTFilterBoolOff";
 
 typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
     LTTFiltersSectionUnknown = -1,
@@ -21,7 +29,8 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
 
 @interface LTTFiltersTVC ()
 
-@property (nonatomic, strong) NSArray *sections;
+@property (nonatomic, strong) NSArray *sorts;
+@property (nonatomic, strong) NSArray *rows;
 
 @end
 
@@ -31,53 +40,85 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
 {
     [super viewDidLoad];
     
-    self.sections = @[
-                        @[
-                            @(LTTSortBrandModel),
-                            @(LTTSortRating)
-                        ],
-                        @[
-                            @0,
-                            @0,
-                            @0,
-                            @0,
-                            @0,
-                            @0,
-                            @0,
-                        ],
-                        @[
-                            @0,
-                            @0,
-                            @0,
-                            @0,
-                            @0,
-                            @0,
-                            @0,
-                        ]
-                    ];
+    self.sorts = @[
+                    @(LTTSortBrandModel),
+                    @(LTTSortRating)
+                  ];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.sections.count;
+    NSInteger count = 1;
+    
+    if (self.filterManager.activeFilters.count > 0) {
+        count++;
+    }
+    if (self.filterManager.filtersPool.count > 0) {
+        count++;
+    }
+    
+    return count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.sections[section] count];
+    if (section == 0) {
+        return self.sorts.count;
+    }
+    else if (section == 1) {
+        if (self.filterManager.activeFilters.count > 0) {
+            return self.filterManager.activeFilters.count;
+        }
+        else if (self.filterManager.filtersPool.count > 0) {
+            return self.filterManager.filtersPool.count;
+        }
+    }
+    else if (section == 2) {
+        if (self.filterManager.filtersPool.count > 0) {
+            return self.filterManager.filtersPool.count;
+        }
+    }
+    
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 52.f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section <= 1) {
+        return 34.f;
+    }
+    
+    return 0;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"Сортировка";
+    }
+    else if (section == 1) {
+        return @"Фильтры";
+    }
+    
+    return @"";
 }
 
 #pragma mark - Cell creation
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        LTTSort sort = [self.sections[indexPath.section][indexPath.row] integerValue];
+        LTTSort sort = [self.sorts[indexPath.row] integerValue];
         return [self sortCellForSort:sort tableView:tableView indexPath:indexPath];
     }
     else {
-        return [self filterCellForSort:0 tableView:tableView indexPath:indexPath];
+        return [self filterCellForTableView:tableView indexPath:indexPath];
     }
 }
 
@@ -85,10 +126,10 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
 {
     NSString *identifier = nil;
     if (self.filterManager.sort == sort) {
-        identifier = @"LTTSortOn";
+        identifier = LTTFiltersSortOnCell;
     }
     else {
-        identifier = @"LTTSortOff";
+        identifier = LTTFiltersSortOffCell;
     }
     
     LTTFilterTVCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
@@ -109,9 +150,63 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
     return cell;
 }
 
-- (UITableViewCell *)filterCellForSort:(LTTSort)sort tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)filterCellForTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
 {
-    LTTFilterTVCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LTTFilterTVCell" forIndexPath:indexPath];
+    LTTFilter *filter = nil;
+    if (indexPath.section == 1 && self.filterManager.activeFilters.count > 0) {
+        filter = self.filterManager.activeFilters[indexPath.row];
+    }
+    else {
+        filter = self.filterManager.filtersPool[indexPath.row];
+    }
+    
+    LTTFilterTVCell *cell = [self cellForFilter:filter tableView:tableView indexPath:indexPath];
+    
+    cell.filter = filter;
+    cell.nameLabel.text = [LTTLamp nameForParameter:filter.param];
+    
+    return cell;
+}
+
+- (LTTFilterTVCell *)cellForFilter:(LTTFilter *)filter tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
+{
+    NSString *identifier = @"LTTFilterTVCell";
+    switch (filter.type) {
+        case LTTFilterTypeUnknown:
+            identifier = LTTFiltersUnsupportedCell;
+            break;
+            
+        case LTTFilterTypeBool:
+            identifier = (filter.isActive) ? LTTFiltersBoolOnCell : LTTFiltersBoolOffCell;
+            break;
+    }
+    
+    LTTFilterTVCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    
+    if ([identifier isEqualToString:@"LTTFilterTVCell"]) {
+        switch (filter.type) {
+            case LTTFilterTypeUnknown:
+                cell.valueLabel.text = @"unknown";
+                break;
+                
+            case LTTFilterTypeString:
+                cell.valueLabel.text = @"string";
+                break;
+                
+            case LTTFilterTypeEnum:
+                cell.valueLabel.text = @"enum";
+                break;
+                
+            case LTTFilterTypeBool:
+                cell.valueLabel.text = @"bool";
+                break;
+                
+            case LTTFilterTypeNumeric:
+                cell.valueLabel.text = @"numeric";
+                break;
+        }
+    }
+    
     return cell;
 }
 
@@ -123,11 +218,14 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
     if (indexPath.section == LTTFiltersSectionSort) {
         [self didSelectSortForTableView:tableView indexPath:indexPath];
     }
+    else {
+        [self didSelectFilterForTableView:tableView indexPath:indexPath];
+    }
 }
 
 - (void)didSelectSortForTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
 {
-    LTTSort sort = [self.sections[indexPath.section][indexPath.row] integerValue];
+    LTTSort sort = [self.sorts[indexPath.row] integerValue];
     if (sort == self.filterManager.sort) {
         return;
     }
@@ -136,38 +234,25 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
     [tableView reloadData];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)didSelectFilterForTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
 {
-    return 52.f;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 0 || section == 1) {
-        return 34.f;
-    }
+    LTTFilterTVCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    LTTFilterType type = cell.filter.type;
     
-    return 0;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return @"Сортировка";
+    switch (type) {
+        case LTTFilterTypeUnknown:
+            break;
+            
+        case LTTFilterTypeBool:
+            if (cell.filter.isActive) {
+                [self.filterManager dropFilter:cell.filter.param];
+            }
+            else {
+                [self.filterManager activateFilterBool:cell.filter.param];
+            }
+            [self.tableView reloadData];
+            break;
     }
-    else if (section == 1) {
-        return @"Фильтры";
-    }
-    
-    return @"";
 }
-
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-}
-
 
 @end
