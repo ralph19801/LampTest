@@ -9,9 +9,12 @@
 #import "LTTFiltersViewController.h"
 #import "LTTFiltersTVC.h"
 #import "LTTMainAssembly.h"
+#import "LTTFilterStringViewController.h"
 
 @interface LTTFiltersViewController ()
 
+@property (nonatomic, strong) LTTFilter *currentFilter;
+@property (nonatomic, strong) LTTFilterManager *filterManager;
 @property (nonatomic, strong) LTTFiltersTVC *tableViewController;
 
 @end
@@ -30,7 +33,20 @@
     if ([segue.identifier isEqualToString:@"FilterListEmbedTVC"]) {
         self.tableViewController = segue.destinationViewController;
         
-        self.tableViewController.filterManager = [[TyphoonComponentFactory defaultFactory] filterManager];
+        self.filterManager = [[TyphoonComponentFactory defaultFactory] filterManager];
+        self.tableViewController.filterManager = self.filterManager;
+        
+        @weakify(self);
+        self.tableViewController.onStringFilterSelected = ^(LTTFilter *filter) {
+            @strongify(self);
+            self.currentFilter = filter;
+            [self performSegueWithIdentifier:@"FilterListToStringFilter" sender:self];
+        };
+    }
+    else if ([segue.identifier isEqualToString:@"FilterListToStringFilter"]) {
+        LTTFilterStringViewController *filterStringViewController = segue.destinationViewController;
+        filterStringViewController.filter = self.currentFilter;
+        filterStringViewController.filterManager = self.filterManager;
     }
 }
 

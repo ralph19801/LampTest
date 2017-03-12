@@ -6,13 +6,14 @@
 //  Copyright © 2017 VMB. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LTTSortEnum.h"
 
 @class LTTFilter;
 
 @interface LTTFilterTVCell : UITableViewCell
 
-@property (nonatomic, weak) LTTFilter *filter;
+@property (nonatomic, assign) LTTSort sort;
+@property (nonatomic, strong) LTTFilter *filter;
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *valueLabel;
 

@@ -19,6 +19,8 @@ static NSString *const LTTFiltersSortOnCell = @"LTTSortOn";
 static NSString *const LTTFiltersSortOffCell = @"LTTSortOff";
 static NSString *const LTTFiltersBoolOnCell = @"LTTFilterBoolOn";
 static NSString *const LTTFiltersBoolOffCell = @"LTTFilterBoolOff";
+static NSString *const LTTFiltersStringOnCell = @"LTTFilterStringOn";
+static NSString *const LTTFiltersStringOffCell = @"LTTFilterStringOff";
 
 typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
     LTTFiltersSectionUnknown = -1,
@@ -44,6 +46,13 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
                     @(LTTSortBrandModel),
                     @(LTTSortRating)
                   ];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -133,19 +142,7 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
     }
     
     LTTFilterTVCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    
-    switch (sort) {
-        case LTTSortUnknown:
-            break;
-            
-        case LTTSortBrandModel:
-            cell.nameLabel.text = @"По бренду, потом по модели";
-            break;
-            
-        case LTTSortRating:
-            cell.nameLabel.text = @"По рейтингу";
-            break;
-    }
+    cell.sort = sort;
 
     return cell;
 }
@@ -160,12 +157,7 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
         filter = self.filterManager.filtersPool[indexPath.row];
     }
     
-    LTTFilterTVCell *cell = [self cellForFilter:filter tableView:tableView indexPath:indexPath];
-    
-    cell.filter = filter;
-    cell.nameLabel.text = [LTTLamp nameForParameter:filter.param];
-    
-    return cell;
+    return [self cellForFilter:filter tableView:tableView indexPath:indexPath];
 }
 
 - (LTTFilterTVCell *)cellForFilter:(LTTFilter *)filter tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
@@ -179,9 +171,14 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
         case LTTFilterTypeBool:
             identifier = (filter.isActive) ? LTTFiltersBoolOnCell : LTTFiltersBoolOffCell;
             break;
+            
+        case LTTFilterTypeString:
+            identifier = (filter.isActive) ? LTTFiltersStringOnCell : LTTFiltersStringOffCell;
+            break;
     }
     
     LTTFilterTVCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    cell.filter = filter;
     
     if ([identifier isEqualToString:@"LTTFilterTVCell"]) {
         switch (filter.type) {
@@ -245,12 +242,16 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
             
         case LTTFilterTypeBool:
             if (cell.filter.isActive) {
-                [self.filterManager dropFilter:cell.filter.param];
+                [self.filterManager dropFilterParam:cell.filter.param];
             }
             else {
                 [self.filterManager activateFilterBool:cell.filter.param];
             }
             [self.tableView reloadData];
+            break;
+            
+        case LTTFilterTypeString:
+            SAFE_RUN(self.onStringFilterSelected, cell.filter);
             break;
     }
 }

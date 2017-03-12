@@ -28,10 +28,10 @@
                 return nil;
                 
             case LTTFilterTypeString:
-                return [NSString stringWithFormat:@"%@ LIKE '%@'", property, self.filterStringValue];
+                return [NSString stringWithFormat:@"%@ LIKE '*%@*'", property, self.filterStringValue];
                 
             case LTTFilterTypeEnum:
-                return [NSString stringWithFormat:@"%@ = '%@'", property, self.filterStringValue];
+                return [NSString stringWithFormat:@"%@ IN '{%@}'", property, self.filterStringValue];
                 
             case LTTFilterTypeBool:
                 return [NSString stringWithFormat:@"%@ = true", property];

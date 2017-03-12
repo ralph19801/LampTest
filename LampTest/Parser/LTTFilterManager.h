@@ -20,7 +20,9 @@
 @property (nonatomic, strong, readonly) NSArray <LTTFilter *> *filtersPool;
 
 - (void)activateFilterBool:(LTTParserNamesToProperties)param;
+- (void)activateFilter:(LTTFilter *)filter string:(NSString *)string;
 
-- (void)dropFilter:(LTTParserNamesToProperties)param;
+- (void)dropFilter:(LTTFilter *)filter;
+- (void)dropFilterParam:(LTTParserNamesToProperties)param;
 
 @end

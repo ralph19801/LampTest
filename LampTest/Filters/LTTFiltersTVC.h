@@ -7,9 +7,12 @@
 //
 
 @class LTTFilterManager;
+@class LTTFilter;
 
 @interface LTTFiltersTVC : UITableViewController
 
 @property (nonatomic, strong) LTTFilterManager *filterManager;
+
+@property (nonatomic, copy) void (^onStringFilterSelected)(LTTFilter *filter);
 
 @end

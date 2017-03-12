@@ -148,7 +148,7 @@
     }
     
     NSComparisonResult (^comparator)(LTTFilter *_Nonnull obj1, LTTFilter *_Nonnull obj2) = ^NSComparisonResult(LTTFilter *_Nonnull obj1, LTTFilter *_Nonnull obj2) {
-        return (obj1.sortOrder > obj2.sortOrder) ? NSOrderedAscending : NSOrderedDescending;
+        return (obj1.sortOrder > obj2.sortOrder) ? NSOrderedDescending : NSOrderedAscending;
     };
     
     [activeFilters sortUsingComparator:comparator];
@@ -181,7 +181,28 @@
     }
 }
 
-- (void)dropFilter:(LTTParserNamesToProperties)param
+- (void)activateFilter:(LTTFilter *)filter string:(NSString *)string;
+{
+    if (string.length > 0) {
+        filter.active = YES;
+        filter.filterStringValue = string;
+        [self updatePools];
+    }
+}
+
+- (void)dropFilter:(LTTFilter *)filter
+{
+    if (filter.isActive) {
+        filter.active = NO;
+        filter.filterStringValue = nil;
+        filter.filterStartValue = -1;
+        filter.filterEndValue = -1;
+        
+        [self updatePools];
+    }
+}
+
+- (void)dropFilterParam:(LTTParserNamesToProperties)param
 {
     BOOL found = NO;
     
