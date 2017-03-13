@@ -16,9 +16,9 @@
 @property (nonatomic, assign, getter = isActive) BOOL active;
 @property (nonatomic, assign) NSInteger sortOrder;
 
-@property (nonatomic, copy) NSString *filterStringValue;
-@property (nonatomic, assign) double filterStartValue;
-@property (nonatomic, assign) double filterEndValue;
+@property (nonatomic, copy) NSString *stringValue;
+@property (nonatomic, assign) double minValue;
+@property (nonatomic, assign) double maxValue;
 
 @property (nonatomic, copy, readonly) NSString *predicateString;
 

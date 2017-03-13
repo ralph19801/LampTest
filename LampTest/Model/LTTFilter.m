@@ -23,21 +23,27 @@
             return nil;
         }
         
+        LTTLampParameterTypes paramType = [LTTLamp typeOfParameter:self.param];
         switch (self.type) {
             case LTTFilterTypeUnknown:
                 return nil;
                 
             case LTTFilterTypeString:
-                return [NSString stringWithFormat:@"%@ LIKE '*%@*'", property, self.filterStringValue];
+                return [NSString stringWithFormat:@"%@ LIKE '*%@*'", property, self.stringValue];
                 
             case LTTFilterTypeEnum:
-                return [NSString stringWithFormat:@"%@ IN '{%@}'", property, self.filterStringValue];
+                return [NSString stringWithFormat:@"%@ IN '{%@}'", property, self.stringValue];
                 
             case LTTFilterTypeBool:
                 return [NSString stringWithFormat:@"%@ = true", property];
                 
             case LTTFilterTypeNumeric:
-                return [NSString stringWithFormat:@"%@ BETWEEN {%f, %f}", property, self.filterStartValue, self.filterEndValue];
+                if (paramType == LTTLampParameterTypeInteger) {
+                    return [NSString stringWithFormat:@"%@ >= %i AND %@ <= %i", property, (NSInteger)self.minValue, property, (NSInteger)self.maxValue];
+                }
+                else {
+                    return [NSString stringWithFormat:@"%@ >= %.1f AND %@ <= %.1f", property, self.minValue, property, self.maxValue];
+                }
         }
     }
 }

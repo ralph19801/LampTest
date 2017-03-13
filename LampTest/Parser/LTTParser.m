@@ -359,9 +359,11 @@
         case LTTLampVoltageMin:
             self.currentLamp.voltageMin = [value integerValue];
             break;
-            
+
+        // подсчитывается в конце
         case LTTLampEffectivity:
-            // подсчитывается в конце
+        case LTTLampVoltageStart:
+        case LTTLampVoltageEnd:
             break;
     }
 }

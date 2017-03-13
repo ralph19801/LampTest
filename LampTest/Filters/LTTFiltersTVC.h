@@ -14,5 +14,7 @@
 @property (nonatomic, strong) LTTFilterManager *filterManager;
 
 @property (nonatomic, copy) void (^onStringFilterSelected)(LTTFilter *filter);
+@property (nonatomic, copy) void (^onNumericFilterSelected)(LTTFilter *filter);
+@property (nonatomic, copy) void (^onEnumFilterSelected)(LTTFilter *filter);
 
 @end

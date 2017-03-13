@@ -10,6 +10,8 @@
 #import "LTTFilter.h"
 #import "LTTLamp.h"
 
+CGFloat const LTTFilterNumericParamOff = -1;
+
 @interface LTTFilterManager()
 
 @property (nonatomic, strong, readwrite) NSString *predicateString;
@@ -81,6 +83,9 @@
         filter.param = param;
         filter.active = NO;
         filter.sortOrder = i;
+        filter.stringValue = @"";
+        filter.minValue = LTTFilterNumericParamOff;
+        filter.maxValue = LTTFilterNumericParamOff;
         
         switch (paramType) {
             case LTTLampParameterTypeUnknown:
@@ -92,7 +97,7 @@
                     filter.type = LTTFilterTypeString;
                 }
                 else {
-                    filter.type =LTTFilterTypeEnum;
+                    filter.type = LTTFilterTypeEnum;
                 }
                 break;
                 
@@ -159,24 +164,13 @@
     self.predicateString = predicateString;
 }
 
-- (void)activateFilterBool:(LTTParserNamesToProperties)param
+- (void)activateFilterBool:(LTTFilter *)filter
 {
-    BOOL found = NO;
-    
-    for (LTTFilter *filter in self.filters) {
-        if (filter.param == param) {
-            if (filter.isActive) {
-                return;
-            }
-            else {
-                filter.active = YES;
-                found = YES;
-                break;
-            }
-        }
+    if (filter.isActive) {
+        return;
     }
-    
-    if (found) {
+    else {
+        filter.active = YES;
         [self updatePools];
     }
 }
@@ -185,18 +179,27 @@
 {
     if (string.length > 0) {
         filter.active = YES;
-        filter.filterStringValue = string;
+        filter.stringValue = string;
         [self updatePools];
     }
+}
+
+- (void)activateFilter:(LTTFilter *)filter minValue:(float)minValue maxValue:(float)maxValue
+{
+    filter.active = YES;
+    filter.minValue = minValue;
+    filter.maxValue = maxValue;
+    
+    [self updatePools];
 }
 
 - (void)dropFilter:(LTTFilter *)filter
 {
     if (filter.isActive) {
         filter.active = NO;
-        filter.filterStringValue = nil;
-        filter.filterStartValue = -1;
-        filter.filterEndValue = -1;
+        filter.stringValue = nil;
+        filter.minValue = LTTFilterNumericParamOff;
+        filter.maxValue = LTTFilterNumericParamOff;
         
         [self updatePools];
     }
@@ -210,9 +213,9 @@
         if (filter.param == param) {
             if (filter.isActive) {
                 filter.active = NO;
-                filter.filterStringValue = nil;
-                filter.filterStartValue = -1;
-                filter.filterEndValue = -1;
+                filter.stringValue = nil;
+                filter.minValue = LTTFilterNumericParamOff;
+                filter.maxValue = LTTFilterNumericParamOff;
                 found = YES;
                 break;
             }

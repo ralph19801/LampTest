@@ -11,6 +11,8 @@
 
 @class LTTFilter;
 
+extern CGFloat const LTTFilterNumericParamOff;
+
 @interface LTTFilterManager : NSObject
 
 @property (nonatomic, assign) LTTSort sort;
@@ -19,10 +21,10 @@
 @property (nonatomic, strong, readonly) NSArray <LTTFilter *> *activeFilters;
 @property (nonatomic, strong, readonly) NSArray <LTTFilter *> *filtersPool;
 
-- (void)activateFilterBool:(LTTParserNamesToProperties)param;
+- (void)activateFilterBool:(LTTFilter *)filter;
 - (void)activateFilter:(LTTFilter *)filter string:(NSString *)string;
+- (void)activateFilter:(LTTFilter *)filter minValue:(float)minValue maxValue:(float)maxValue;
 
 - (void)dropFilter:(LTTFilter *)filter;
-- (void)dropFilterParam:(LTTParserNamesToProperties)param;
 
 @end

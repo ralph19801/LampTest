@@ -10,6 +10,7 @@
 #import "LTTFiltersTVC.h"
 #import "LTTMainAssembly.h"
 #import "LTTFilterStringViewController.h"
+#import "LTTFilterNumericViewController.h"
 
 @interface LTTFiltersViewController ()
 
@@ -42,11 +43,22 @@
             self.currentFilter = filter;
             [self performSegueWithIdentifier:@"FilterListToStringFilter" sender:self];
         };
+        
+        self.tableViewController.onNumericFilterSelected = ^(LTTFilter *filter) {
+            @strongify(self);
+            self.currentFilter = filter;
+            [self performSegueWithIdentifier:@"FilterListToNumericFilter" sender:self];
+        };
     }
     else if ([segue.identifier isEqualToString:@"FilterListToStringFilter"]) {
         LTTFilterStringViewController *filterStringViewController = segue.destinationViewController;
         filterStringViewController.filter = self.currentFilter;
         filterStringViewController.filterManager = self.filterManager;
+    }
+    else if ([segue.identifier isEqualToString:@"FilterListToNumericFilter"]) {
+        LTTFilterNumericViewController *filterNumeric = segue.destinationViewController;
+        filterNumeric.filter = self.currentFilter;
+        filterNumeric.filterManager = self.filterManager;
     }
 }
 

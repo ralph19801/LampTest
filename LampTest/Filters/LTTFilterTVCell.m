@@ -47,9 +47,27 @@
     _filter = filter;
     
     self.nameLabel.text = [LTTLamp nameForParameter:self.filter.param];
+    LTTLampParameterTypes paramType = [LTTLamp typeOfParameter:self.filter.param];
     
-    if (self.filter.isActive && self.filter.type == LTTFilterTypeString) {
-        self.valueLabel.text = [NSString stringWithFormat:@"\"*%@*\"", self.filter.filterStringValue];
+    if (self.filter.isActive) {
+        switch (self.filter.type) {
+            case LTTFilterTypeUnknown:
+            case LTTFilterTypeBool:
+                break;
+                
+            case LTTFilterTypeString:
+                self.valueLabel.text = [NSString stringWithFormat:@"\"*%@*\"", self.filter.stringValue];
+                break;
+                
+            case LTTFilterTypeNumeric:
+                if (paramType == LTTLampParameterTypeInteger) {
+                    self.valueLabel.text = [NSString stringWithFormat:@"от %i до %i", (NSInteger)self.filter.minValue, (NSInteger)self.filter.maxValue];
+                }
+                else {
+                    self.valueLabel.text = [NSString stringWithFormat:@"от %.1f до %.1f", self.filter.minValue, self.filter.maxValue];
+                }
+                break;
+        }
     }
 }
 

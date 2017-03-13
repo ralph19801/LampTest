@@ -28,7 +28,7 @@
     [self.searchTextField becomeFirstResponder];
     
     self.filterNameLabel.text = [LTTLamp nameForParameter:self.filter.param];
-    self.searchTextField.text = self.filter.filterStringValue;
+    self.searchTextField.text = self.filter.stringValue;
 }
 
 - (IBAction)onTextChanged:(id)sender
@@ -45,10 +45,9 @@
 
 - (IBAction)onCancelTouch:(id)sender
 {
-    self.filter.active = NO;
-    self.filter.filterStringValue = @"";
+    [self.filterManager dropFilter:self.filter];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -11,6 +11,7 @@ def common_pods
     pod 'MTBBarcodeScanner', '~> 3.1.0'
     pod 'ReactiveCocoa', '= 2.5'
     pod 'Realm', '~> 2.1.2'
+    pod 'TTRangeSlider', '~> 1.0.5'
     pod 'Typhoon', '~> 4.0.0'
 end 
 

@@ -19,8 +19,8 @@ static NSString *const LTTFiltersSortOnCell = @"LTTSortOn";
 static NSString *const LTTFiltersSortOffCell = @"LTTSortOff";
 static NSString *const LTTFiltersBoolOnCell = @"LTTFilterBoolOn";
 static NSString *const LTTFiltersBoolOffCell = @"LTTFilterBoolOff";
-static NSString *const LTTFiltersStringOnCell = @"LTTFilterStringOn";
-static NSString *const LTTFiltersStringOffCell = @"LTTFilterStringOff";
+static NSString *const LTTFiltersSNEOnCell = @"LTTFilterSNEOn"; // String, Numeric, Enum
+static NSString *const LTTFiltersSNEOffCell = @"LTTFilterSNEOff";
 
 typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
     LTTFiltersSectionUnknown = -1,
@@ -53,6 +53,7 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -173,7 +174,8 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
             break;
             
         case LTTFilterTypeString:
-            identifier = (filter.isActive) ? LTTFiltersStringOnCell : LTTFiltersStringOffCell;
+        case LTTFilterTypeNumeric:
+            identifier = (filter.isActive) ? LTTFiltersSNEOnCell : LTTFiltersSNEOffCell;
             break;
     }
     
@@ -242,16 +244,24 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
             
         case LTTFilterTypeBool:
             if (cell.filter.isActive) {
-                [self.filterManager dropFilterParam:cell.filter.param];
+                [self.filterManager dropFilter:cell.filter];
             }
             else {
-                [self.filterManager activateFilterBool:cell.filter.param];
+                [self.filterManager activateFilterBool:cell.filter];
             }
             [self.tableView reloadData];
             break;
             
         case LTTFilterTypeString:
             SAFE_RUN(self.onStringFilterSelected, cell.filter);
+            break;
+            
+        case LTTFilterTypeNumeric:
+            SAFE_RUN(self.onNumericFilterSelected, cell.filter);
+            break;
+            
+        case LTTFilterTypeEnum:
+            SAFE_RUN(self.onEnumFilterSelected, cell.filter);
             break;
     }
 }

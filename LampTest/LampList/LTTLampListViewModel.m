@@ -39,7 +39,7 @@
      subscribeNext:^(RACTuple *tuple) {
          
          LTTSort sort = [tuple.first integerValue];
-         NSString *predicateString = tuple.second;
+         NSString *predicateString = tuple.second; //@"nominalBrightness >= 400 AND nominalBrightness <= 500";//
          
 //         NSLog(@"predicate changed: %@", predicateString);
         
