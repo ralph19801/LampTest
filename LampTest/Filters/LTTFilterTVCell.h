@@ -17,4 +17,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *valueLabel;
 
+@property (nonatomic, copy) void (^onDropFilter)(LTTFilter *filter);
+
 @end

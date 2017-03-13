@@ -182,6 +182,13 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
     LTTFilterTVCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     cell.filter = filter;
     
+    @weakify(self);
+    cell.onDropFilter = ^(LTTFilter *filter) {
+        @strongify(self);
+        [self.filterManager dropFilter:filter];
+        [self.tableView reloadData];
+    };
+    
     if ([identifier isEqualToString:@"LTTFilterTVCell"]) {
         switch (filter.type) {
             case LTTFilterTypeUnknown:

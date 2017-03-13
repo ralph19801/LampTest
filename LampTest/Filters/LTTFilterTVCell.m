@@ -56,7 +56,7 @@
                 break;
                 
             case LTTFilterTypeString:
-                self.valueLabel.text = [NSString stringWithFormat:@"\"*%@*\"", self.filter.stringValue];
+                self.valueLabel.text = [NSString stringWithFormat:@"*%@*", self.filter.stringValue];
                 break;
                 
             case LTTFilterTypeNumeric:
@@ -69,6 +69,11 @@
                 break;
         }
     }
+}
+
+- (IBAction)onDropFilterTouch:(id)sender
+{
+    SAFE_RUN(self.onDropFilter, self.filter);
 }
 
 @end

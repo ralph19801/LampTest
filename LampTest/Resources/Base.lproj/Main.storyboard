@@ -637,13 +637,17 @@
                                                 <constraint firstAttribute="height" constant="32" id="t9d-vx-ujB"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btS-mU-wef">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btS-mU-wef">
                                             <rect key="frame" x="8" y="8" width="40" height="47"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="47" id="VYU-Bw-d9I"/>
                                                 <constraint firstAttribute="width" constant="40" id="W5V-7G-GAr"/>
                                             </constraints>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <state key="normal" image="cancel"/>
+                                            <connections>
+                                                <action selector="onDropFilterTouch:" destination="BCc-5R-qLV" eventType="touchUpInside" id="RhA-ZP-M4c"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
