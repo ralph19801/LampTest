@@ -11,6 +11,7 @@
 
 typedef NS_ENUM(NSUInteger, LTTSort) {
     LTTSortUnknown = 0,
+    LTTSortModel,
     LTTSortBrandModel,
     LTTSortRating
 };

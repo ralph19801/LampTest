@@ -32,6 +32,10 @@
         case LTTSortUnknown:
             break;
             
+        case LTTSortModel:
+            self.nameLabel.text = @"По модели";
+            break;
+            
         case LTTSortBrandModel:
             self.nameLabel.text = @"По бренду, потом по модели";
             break;

@@ -39,9 +39,7 @@
      subscribeNext:^(RACTuple *tuple) {
          
          LTTSort sort = [tuple.first integerValue];
-         NSString *predicateString = tuple.second; //@"nominalBrightness >= 400 AND nominalBrightness <= 500";//
-         
-//         NSLog(@"predicate changed: %@", predicateString);
+         NSString *predicateString = tuple.second;
         
          RLMResults *lamps = nil;
          if (predicateString.length > 0) {
@@ -54,10 +52,14 @@
          switch (sort) {
              case LTTSortUnknown:
                  break;
-                
+                 
+             case LTTSortModel:
+                 self.lamps = [lamps sortedResultsUsingDescriptors:@[[RLMSortDescriptor sortDescriptorWithProperty:@"model" ascending:YES]]];
+                 break;
+                 
              case LTTSortBrandModel:
                  self.lamps = [lamps sortedResultsUsingDescriptors:@[[RLMSortDescriptor sortDescriptorWithProperty:@"brand" ascending:YES],
-                                                                                    [RLMSortDescriptor sortDescriptorWithProperty:@"model" ascending:YES]]];
+                                                                     [RLMSortDescriptor sortDescriptorWithProperty:@"model" ascending:YES]]];
                  break;
                 
              case LTTSortRating:

@@ -43,8 +43,9 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
     [super viewDidLoad];
     
     self.sorts = @[
-                    @(LTTSortBrandModel),
-                    @(LTTSortRating)
+                   @(LTTSortModel),
+                   @(LTTSortBrandModel),
+                   @(LTTSortRating)
                   ];
 }
 
@@ -238,6 +239,7 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
     
     self.filterManager.sort = sort;
     [tableView reloadData];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didSelectFilterForTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
