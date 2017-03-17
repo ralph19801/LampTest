@@ -151,37 +151,6 @@ static NSInteger const LTTLampImagesCell = -1;
     
     [cell setParameterName:paramName];
     
-    // матовость
-    if (param == LTTLampMatte) {
-        if ([paramValue integerValue] == 0) {
-            paramType = LTTLampParameterTypeString;
-            paramValue = @"прозрачная";
-        }
-        else if ([paramValue integerValue] == 1) {
-            paramType = LTTLampParameterTypeString;
-            paramValue = @"матовая";
-        }
-    }
-    // поддержка выключателей с индикатором
-    else if (param == LTTLampSwitch) {
-        if ([paramValue integerValue] == 0) {
-            paramType = LTTLampParameterTypeString;
-            paramValue = @"нет";
-        }
-        else if ([paramValue integerValue] == 1) {
-            paramType = LTTLampParameterTypeString;
-            paramValue = @"поддерживается";
-        }
-        else if ([paramValue integerValue] == 2) {
-            paramType = LTTLampParameterTypeString;
-            paramValue = @"слабо светится";
-        }
-        else if ([paramValue integerValue] == 3) {
-            paramType = LTTLampParameterTypeString;
-            paramValue = @"вспыхивает";
-        }
-    }
-    
     // пустые параметры
     UIColor *valueColor = [UIColor blackColor];
     if (paramType == LTTLampParameterTypeString && [paramValue isKindOfClass:[NSString class]]) {

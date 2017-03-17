@@ -32,7 +32,7 @@
                 return [NSString stringWithFormat:@"%@ LIKE '*%@*'", property, self.stringValue];
                 
             case LTTFilterTypeEnum:
-                return [NSString stringWithFormat:@"%@ IN '{%@}'", property, self.stringValue];
+                return [NSString stringWithFormat:@"%@ IN {%@}", property, self.stringValue];
                 
             case LTTFilterTypeBool:
                 return [NSString stringWithFormat:@"%@ = true", property];

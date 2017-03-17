@@ -10,6 +10,7 @@
 #import "LTTLampDetailsViewController.h"
 #import "LTTLampDetailsTVC.h"
 #import "LTTImageViewController.h"
+#import "UIViewController+LTTMultilineTitle.h"
 
 @interface LTTLampDetailsViewController ()
 
@@ -25,7 +26,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = self.lamp.model;
+    [self ltt_setupTitle:self.lamp.model];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

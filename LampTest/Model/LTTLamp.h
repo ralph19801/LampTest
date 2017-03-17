@@ -37,7 +37,7 @@ typedef NS_ENUM(NSUInteger, LTTLampParameterTypes) {
 @property (nonatomic, strong) NSString *link;       // ссылка
 @property (nonatomic, strong) NSString *shop;       // ссылка на магазин
 @property (nonatomic, strong) NSString *made;       // изготовлена
-@property (nonatomic, assign) NSInteger matte;      // матовая
+@property (nonatomic, strong) NSString *matte;      // матовая
 @property (nonatomic, strong) NSString *model;      // модель
 @property (nonatomic, assign) NSInteger nominalBrightness;  // заявленная яркость, Лм
 @property (nonatomic, assign) NSInteger nominalColor;   // заявленный цвет, К
@@ -54,12 +54,12 @@ typedef NS_ENUM(NSUInteger, LTTLampParameterTypes) {
 @property (nonatomic, assign) NSInteger R9;         // ???
 @property (nonatomic, strong) NSString *shape;      // форма лампы, ENUM
 @property (nonatomic, strong) NSString *subtype;    // подтип, ENUM
-@property (nonatomic, assign) NSInteger switchAllowed; // поддержка выключателя с индикатором, 0-2
+@property (nonatomic, strong) NSString *switchAllowed;  // поддержка выключателя с индикатором, 0-2
 @property (nonatomic, strong) NSString *type;       // тип, ENUM
 @property (nonatomic, assign) NSInteger voltageStart;   // указанное минимальное напряжение, В
-@property (nonatomic, assign) NSInteger voltageEnd;     // указанное максимальное напряжение, В
-@property (nonatomic, assign) NSInteger voltageMin;     // измеренное минимальное напряжение, В
-@property (nonatomic, assign) NSInteger warranty;       // гарантия, мес
+@property (nonatomic, assign) NSInteger voltageEnd; // указанное максимальное напряжение, В
+@property (nonatomic, assign) NSInteger voltageMin; // измеренное минимальное напряжение, В
+@property (nonatomic, assign) NSInteger warranty;   // гарантия, мес
 
 + (LTTLampParameterTypes)typeOfParameter:(LTTParserNamesToProperties)param;
 - (id)valueOfParameter:(LTTParserNamesToProperties)param;

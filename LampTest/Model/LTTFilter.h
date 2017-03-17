@@ -15,6 +15,7 @@
 @property (nonatomic, assign) LTTFilterType type;
 @property (nonatomic, assign, getter = isActive) BOOL active;
 @property (nonatomic, assign) NSInteger sortOrder;
+@property (nonatomic, copy) NSSet *enumOptions;
 
 @property (nonatomic, copy) NSString *stringValue;
 @property (nonatomic, assign) double minValue;

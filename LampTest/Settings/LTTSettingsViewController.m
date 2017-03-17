@@ -9,6 +9,8 @@
 #import "LTTSettingsViewController.h"
 #import "LTTLamp.h"
 #import "LTTParser.h"
+#import "LTTFilterManager.h"
+#import "LTTMainAssembly.h"
 
 @interface LTTSettingsViewController ()
 
@@ -56,6 +58,9 @@
         else {
             NSLog(@"error while saving database: %@", error);
         }
+        
+        LTTFilterManager *manager = [[TyphoonComponentFactory defaultFactory] filterManager];
+        [manager populateFilters];
     }];
 }
 

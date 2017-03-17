@@ -53,6 +53,9 @@
     self.nameLabel.text = [LTTLamp nameForParameter:self.filter.param];
     LTTLampParameterTypes paramType = [LTTLamp typeOfParameter:self.filter.param];
     
+    NSString *firstOption = nil;
+    NSString *secondOption = nil;
+    NSArray *options = nil;
     if (self.filter.isActive) {
         switch (self.filter.type) {
             case LTTFilterTypeUnknown:
@@ -69,6 +72,29 @@
                 }
                 else {
                     self.valueLabel.text = [NSString stringWithFormat:@"от %.1f до %.1f", self.filter.minValue, self.filter.maxValue];
+                }
+                break;
+                
+            case LTTFilterTypeEnum:
+                options = [self.filter.stringValue componentsSeparatedByString:@","];
+                for (NSString *option in options) {
+                    secondOption = [option stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"'"]];
+                    if ( ! firstOption ) {
+                        firstOption = secondOption;
+                    }
+                    else {
+                        break;
+                    }
+                }
+
+                if (options.count == 1) {
+                    self.valueLabel.text = firstOption;
+                }
+                else if (options.count == 2) {
+                    self.valueLabel.text = [NSString stringWithFormat:@"%@, %@", firstOption, secondOption];
+                }
+                else {
+                    self.valueLabel.text = [NSString stringWithFormat:@"%@ + ещё %i", firstOption, options.count - 1];
                 }
                 break;
         }

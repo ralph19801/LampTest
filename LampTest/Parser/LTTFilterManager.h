@@ -21,9 +21,12 @@ extern CGFloat const LTTFilterNumericParamOff;
 @property (nonatomic, strong, readonly) NSArray <LTTFilter *> *activeFilters;
 @property (nonatomic, strong, readonly) NSArray <LTTFilter *> *filtersPool;
 
+- (void)populateFilters;
+
 - (void)activateFilterBool:(LTTFilter *)filter;
 - (void)activateFilter:(LTTFilter *)filter string:(NSString *)string;
 - (void)activateFilter:(LTTFilter *)filter minValue:(float)minValue maxValue:(float)maxValue;
+- (void)activateFilter:(LTTFilter *)filter enumString:(NSString *)enumString;
 
 - (void)dropFilter:(LTTFilter *)filter;
 

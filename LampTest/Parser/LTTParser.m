@@ -11,6 +11,9 @@
 #import "LTTLamp.h"
 #import "LTTParameterNamesEnum.h"
 
+NSString *const LTTParameterValueStringNoBase = @"без цоколя";
+NSString *const LTTParameterValueStringNo = @"нет";
+
 @interface LTTParser () <CHCSVParserDelegate>
 
 @property (nonatomic, assign) NSStringEncoding encoding;
@@ -70,7 +73,7 @@
                                @"date" : @(LTTLampDate),
                                @"rating" : @(LTTLampRating),
                                @"act" : @(LTTLampActual),
-                               @"u_min" : @(LTTLampVoltageMin),
+                               @"umin" : @(LTTLampVoltageMin),
                                @"___" : @(LTTLampEffectivity)  // нет в CSV, расчетный
                                };
     }
@@ -244,23 +247,37 @@
             break;
             
         case LTTLampBase:
-            self.currentLamp.base = value; //TODO сохранить все варианты
+            self.currentLamp.base = value;
+            if ([value isEqualToString:@"no"]) {
+                self.currentLamp.base = LTTParameterValueStringNoBase;
+            }
             break;
             
         case LTTLampShape:
-            self.currentLamp.shape = value; //TODO сохранить варианты
+            self.currentLamp.shape = value;
             break;
             
         case LTTLampType:
-            self.currentLamp.type = value; // -||-
+            self.currentLamp.type = value;
             break;
             
         case LTTLampSubtype:
-            self.currentLamp.subtype = value; // -||-
+            self.currentLamp.subtype = value;
+            if ([value isEqualToString:@""]) {
+                self.currentLamp.subtype = LTTParameterValueStringNo;
+            }
             break;
             
         case LTTLampMatte:
-            self.currentLamp.matte = [value integerValue];
+            if ([value isEqualToString:@"0"]) {
+                self.currentLamp.matte = @"прозрачная";
+            }
+            else if ([value isEqualToString:@"1"]) {
+                self.currentLamp.matte = @"матовая";
+            }
+            else {
+                self.currentLamp.matte = @"н/д";
+            }
             break;
             
         case LTTLampNominalBrightness:
@@ -303,7 +320,18 @@
             break;
             
         case LTTLampSwitch:
-            self.currentLamp.switchAllowed = [value integerValue];
+            if ([value integerValue] == 0 || [value isEqualToString:@""]) {
+                self.currentLamp.switchAllowed = @"нет";
+            }
+            else if ([value integerValue] == 1) {
+                self.currentLamp.switchAllowed = @"поддерж.";
+            }
+            else if ([value integerValue] == 2) {
+                self.currentLamp.switchAllowed = @"сл. светится";
+            }
+            else if ([value integerValue] == 3) {
+                self.currentLamp.switchAllowed = @"вспыхивает";
+            }
             break;
          
         case LTTLampPower:

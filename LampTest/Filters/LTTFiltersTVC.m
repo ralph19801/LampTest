@@ -42,10 +42,12 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
 {
     [super viewDidLoad];
     
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     self.sorts = @[
-                   @(LTTSortModel),
+                   @(LTTSortRating),
                    @(LTTSortBrandModel),
-                   @(LTTSortRating)
+                   @(LTTSortModel),
                   ];
 }
 
@@ -54,7 +56,6 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
-    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -176,6 +177,7 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
             
         case LTTFilterTypeString:
         case LTTFilterTypeNumeric:
+        case LTTFilterTypeEnum:
             identifier = (filter.isActive) ? LTTFiltersSNEOnCell : LTTFiltersSNEOffCell;
             break;
     }
@@ -190,29 +192,29 @@ typedef NS_ENUM(NSUInteger, LTTFiltersSection) {
         [self.tableView reloadData];
     };
     
-    if ([identifier isEqualToString:@"LTTFilterTVCell"]) {
-        switch (filter.type) {
-            case LTTFilterTypeUnknown:
-                cell.valueLabel.text = @"unknown";
-                break;
-                
-            case LTTFilterTypeString:
-                cell.valueLabel.text = @"string";
-                break;
-                
-            case LTTFilterTypeEnum:
-                cell.valueLabel.text = @"enum";
-                break;
-                
-            case LTTFilterTypeBool:
-                cell.valueLabel.text = @"bool";
-                break;
-                
-            case LTTFilterTypeNumeric:
-                cell.valueLabel.text = @"numeric";
-                break;
-        }
-    }
+//    if ([identifier isEqualToString:@"LTTFilterTVCell"]) {
+//        switch (filter.type) {
+//            case LTTFilterTypeUnknown:
+//                cell.valueLabel.text = @"unknown";
+//                break;
+//                
+//            case LTTFilterTypeString:
+//                cell.valueLabel.text = @"string";
+//                break;
+//                
+//            case LTTFilterTypeEnum:
+//                cell.valueLabel.text = @"enum";
+//                break;
+//                
+//            case LTTFilterTypeBool:
+//                cell.valueLabel.text = @"bool";
+//                break;
+//                
+//            case LTTFilterTypeNumeric:
+//                cell.valueLabel.text = @"numeric";
+//                break;
+//        }
+//    }
     
     return cell;
 }

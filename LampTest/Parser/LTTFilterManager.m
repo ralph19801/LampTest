@@ -32,46 +32,46 @@ CGFloat const LTTFilterNumericParamOff = -1;
         _sort = LTTSortRating;
         
         _filterParams = @[
-              @(LTTLampBrand),
-              @(LTTLampModel),
-              @(LTTLampBase),
-              @(LTTLampShape),
-              @(LTTLampType),
-              @(LTTLampSubtype),
-              @(LTTLampMatte),
-              @(LTTLampNominalPower),
-              @(LTTLampNominalBrightness),
-              @(LTTLampNominalPowerEquivalent),
-              @(LTTLampNominalColor),
-              @(LTTLampDurability),
-              @(LTTLampPower),
-              @(LTTLampBrightness),
-              @(LTTLampEffectivity),
-              @(LTTLampPowerEquivalent),
-              @(LTTLampColor),
-              @(LTTLampNominalCRI),
-              @(LTTLampCRI),
-              @(LTTLampAngle),
-              @(LTTLampPulsation),
-              @(LTTLampSwitch),
-              @(LTTLampDimmer),
-              @(LTTLampDiameter),
-              @(LTTLampHeight),
-              @(LTTLampVoltage),
-              @(LTTLampVoltageMin),
-              @(LTTLampPriceRub),
-              @(LTTLampPriceUsd),
-              @(LTTLampActual),
-              @(LTTLampRating)
+                          @(LTTLampRating),
+                          @(LTTLampBrand),
+                          @(LTTLampModel),
+                          @(LTTLampBase),
+                          @(LTTLampShape),
+                          @(LTTLampType),
+                          @(LTTLampSubtype),
+                          @(LTTLampNominalPower),
+                          @(LTTLampPower),
+                          @(LTTLampNominalPowerEquivalent),
+                          @(LTTLampPowerEquivalent),
+                          @(LTTLampNominalBrightness),
+                          @(LTTLampBrightness),
+                          @(LTTLampNominalColor),
+                          @(LTTLampColor),
+                          @(LTTLampNominalCRI),
+                          @(LTTLampCRI),
+                          @(LTTLampDurability),
+                          @(LTTLampEffectivity),
+                          @(LTTLampMatte),
+                          @(LTTLampAngle),
+                          @(LTTLampPulsation),
+                          @(LTTLampSwitch),
+                          @(LTTLampDimmer),
+                          @(LTTLampDiameter),
+                          @(LTTLampHeight),
+                          @(LTTLampVoltage), //TODO
+                          @(LTTLampVoltageMin),
+                          @(LTTLampPriceRub),
+                          @(LTTLampPriceUsd),
+                          @(LTTLampActual),
         ];
         
-        _filters = [self populateFilters];
+        [self populateFilters];
         [self updatePools];
     }
     return self;
 }
 
-- (NSArray *)populateFilters
+- (void)populateFilters
 {
     NSMutableArray *filters = [NSMutableArray arrayWithCapacity:self.filterParams.count];
     
@@ -123,10 +123,26 @@ CGFloat const LTTFilterNumericParamOff = -1;
                 break;
         }
         
+        if (filter.type == LTTFilterTypeEnum) {
+            filter.enumOptions = [self enumOptionsForFilter:filter];
+        }
+        
         [filters addObject:filter];
     }
     
-    return filters;
+    self.filters = filters;
+}
+
+- (NSSet *)enumOptionsForFilter:(LTTFilter *)filter
+{
+    NSMutableSet *set = [NSMutableSet new];
+    
+    RLMResults *rlts = [LTTLamp allObjects];
+    for (LTTLamp *lamp in rlts) {
+        [set addObject:[lamp valueOfParameter:filter.param]];
+    }
+    
+    return set;
 }
 
 #pragma mark - Filter activation and deactivation
@@ -192,6 +208,14 @@ CGFloat const LTTFilterNumericParamOff = -1;
     
     [self updatePools];
 }
+- (void)activateFilter:(LTTFilter *)filter enumString:(NSString *)enumString
+{
+    if (enumString.length > 0) {
+        filter.active = YES;
+        filter.stringValue = enumString;
+        [self updatePools];
+    }
+}
 
 - (void)dropFilter:(LTTFilter *)filter
 {
@@ -201,31 +225,6 @@ CGFloat const LTTFilterNumericParamOff = -1;
         filter.minValue = LTTFilterNumericParamOff;
         filter.maxValue = LTTFilterNumericParamOff;
         
-        [self updatePools];
-    }
-}
-
-- (void)dropFilterParam:(LTTParserNamesToProperties)param
-{
-    BOOL found = NO;
-    
-    for (LTTFilter *filter in self.filters) {
-        if (filter.param == param) {
-            if (filter.isActive) {
-                filter.active = NO;
-                filter.stringValue = nil;
-                filter.minValue = LTTFilterNumericParamOff;
-                filter.maxValue = LTTFilterNumericParamOff;
-                found = YES;
-                break;
-            }
-            else {
-                return;
-            }
-        }
-    }
-    
-    if (found) {
         [self updatePools];
     }
 }

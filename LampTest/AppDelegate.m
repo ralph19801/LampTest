@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LTTMainAssembly.h"
 #import "UIColor+LTTColors.h"
+#import "UIFont+LTTFonts.h"
 
 @interface AppDelegate ()
 
@@ -56,8 +57,8 @@
 - (void)setupAppearance
 {
     // UINavigationBar
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor],
-                                                           NSFontAttributeName: [UIFont fontWithName:@"AvenirNext-Regular" size:17.0]}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
+                                                           NSFontAttributeName:[UIFont ltt_singleLineNavigationBarTitleFont]}];
     
     [[UINavigationBar appearance] setTintColor:[UIColor ltt_orangeColor]];
     

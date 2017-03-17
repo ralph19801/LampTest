@@ -7,10 +7,13 @@
 //
 
 #import "LTTFiltersViewController.h"
-#import "LTTFiltersTVC.h"
 #import "LTTMainAssembly.h"
+#import "LTTFilter.h"
+
+#import "LTTFiltersTVC.h"
 #import "LTTFilterStringViewController.h"
 #import "LTTFilterNumericViewController.h"
+#import "LTTFilterEnumViewController.h"
 
 @interface LTTFiltersViewController ()
 
@@ -49,16 +52,27 @@
             self.currentFilter = filter;
             [self performSegueWithIdentifier:@"FilterListToNumericFilter" sender:self];
         };
+        
+        self.tableViewController.onEnumFilterSelected = ^(LTTFilter *filter) {
+            @strongify(self);
+            self.currentFilter = filter;
+            [self performSegueWithIdentifier:@"FilterListToEnumFilter" sender:self];
+        };
     }
     else if ([segue.identifier isEqualToString:@"FilterListToStringFilter"]) {
-        LTTFilterStringViewController *filterStringViewController = segue.destinationViewController;
-        filterStringViewController.filter = self.currentFilter;
-        filterStringViewController.filterManager = self.filterManager;
+        LTTFilterStringViewController *filterString = segue.destinationViewController;
+        filterString.filter = self.currentFilter;
+        filterString.filterManager = self.filterManager;
     }
     else if ([segue.identifier isEqualToString:@"FilterListToNumericFilter"]) {
         LTTFilterNumericViewController *filterNumeric = segue.destinationViewController;
         filterNumeric.filter = self.currentFilter;
         filterNumeric.filterManager = self.filterManager;
+    }
+    else if ([segue.identifier isEqualToString:@"FilterListToEnumFilter"]) {
+        LTTFilterEnumViewController *filterEnum = segue.destinationViewController;
+        filterEnum.filter = self.currentFilter;
+        filterEnum.filterManager = self.filterManager;
     }
 }
 

@@ -11,10 +11,10 @@
 #import "LTTLamp.h"
 #import "LTTFilterManager.h"
 #import "LTTMainAssembly.h"
+#import "UIViewController+LTTMultilineTitle.h"
 
 @interface LTTFilterStringViewController ()
 
-@property (nonatomic, strong) IBOutlet UILabel *filterNameLabel;
 @property (nonatomic, strong) IBOutlet UITextField *searchTextField;
 
 @end
@@ -27,7 +27,7 @@
     
     [self.searchTextField becomeFirstResponder];
     
-    self.filterNameLabel.text = [LTTLamp nameForParameter:self.filter.param];
+    [self ltt_setupTitle:[LTTLamp nameForParameter:self.filter.param]];
     self.searchTextField.text = self.filter.stringValue;
 }
 

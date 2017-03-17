@@ -12,6 +12,8 @@
 #import "LTTLamp.h"
 #import "LTTFilter.h"
 #import "LTTFilterManager.h"
+#import <Realm/Realm.h>
+#import "UIViewController+LTTMultilineTitle.h"
 
 @interface LTTFilterNumericViewController () <TTRangeSliderDelegate, UITextFieldDelegate>
 
@@ -32,10 +34,12 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = [LTTLamp nameForParameter:self.filter.param];
+    [self ltt_setupTitle:[LTTLamp nameForParameter:self.filter.param]];
     
-    self.globalMinValue = 0;    //TODO real values
-    self.globalMaxValue = 1000;
+    NSString *propertyName = [LTTLamp propertyForParameter:self.filter.param];
+    RLMResults *allObjects = [LTTLamp allObjects];
+    self.globalMinValue = [[allObjects minOfProperty:propertyName] floatValue];
+    self.globalMaxValue = [[allObjects maxOfProperty:propertyName] floatValue];
     
     self.minField.delegate = self;
     self.maxField.delegate = self;
@@ -95,51 +99,28 @@
 }
 
 #pragma mark - UITextFieldDelegate
-- (IBAction)onEditingChanged:(UITextField *)sender
-{
-    if ([sender isEqual:self.minField]) {
-        float newVal = [[self.formatter numberFromString:sender.text] floatValue];
-        if (self.slider.selectedMinimum != newVal) {
-            [self updateMinValue:newVal];
-        }
-    }
-    else if ([sender isEqual:self.maxField]) {
-        float newVal = [[self.formatter numberFromString:sender.text] floatValue];
-        if (self.slider.selectedMaximum != newVal) {
-            [self updateMaxValue:newVal];
-        }
-    }
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (IBAction)onEditingEnded:(UITextField *)sender
 {
     float minValue = [[self.comparingFormatter numberFromString:self.minField.text] floatValue];
     float maxValue = [[self.comparingFormatter numberFromString:self.maxField.text] floatValue];
     
-    if ([textField isEqual:self.minField]) {
-        NSString *newVal = [self.minField.text stringByReplacingCharactersInRange:range withString:string];
-        minValue = [[self.comparingFormatter numberFromString:newVal] floatValue];
+    if ([sender isEqual:self.minField]) {
+        if (minValue < self.globalMinValue) {
+            [self updateMinValue:self.globalMinValue];
+        }
+        else if (minValue > maxValue) {
+            self.minField.text = self.maxField.text;
+            [self updateMinValue:[[self.formatter numberFromString:self.maxField.text] floatValue]];
+        }
     }
-    else if ([textField isEqual:self.maxField]) {
-        NSString *newVal = [self.maxField.text stringByReplacingCharactersInRange:range withString:string];
-        maxValue = [[self.comparingFormatter numberFromString:newVal] floatValue];
+    else if ([sender isEqual:self.maxField]) {
+        if (maxValue > self.globalMaxValue) {
+            [self updateMaxValue:self.globalMaxValue];
+        }
+        else if (maxValue < minValue) {
+            [self updateMaxValue:[[self.formatter numberFromString:self.minField.text] floatValue]];
+        }
     }
-    
-    if (minValue > maxValue) {
-        return NO;
-    }
-    
-    if (minValue < self.globalMinValue) {
-        [self updateMinValue:self.globalMinValue];
-        return NO;
-    }
-    
-    if (maxValue > self.globalMaxValue) {
-        [self updateMaxValue:self.globalMaxValue];
-        return NO;
-    }
-    
-    return YES;
 }
 
 - (IBAction)onCancelTouch:(id)sender

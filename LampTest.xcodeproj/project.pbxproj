@@ -34,6 +34,11 @@
 		FDCCDE6B1E746AB100F749CF /* LTTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCCDE6A1E746AB100F749CF /* LTTFilter.m */; };
 		FDCCDE6E1E75AD5B00F749CF /* LTTFilterStringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCCDE6D1E75AD5B00F749CF /* LTTFilterStringViewController.m */; };
 		FDCCDE711E75C6E800F749CF /* LTTFilterNumericViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCCDE701E75C6E800F749CF /* LTTFilterNumericViewController.m */; };
+		FDDB40471E7C7C8E00111E31 /* UIViewController+LTTMultilineTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDB40461E7C7C8E00111E31 /* UIViewController+LTTMultilineTitle.m */; };
+		FDDB404A1E7C7CF700111E31 /* UIFont+LTTFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDB40491E7C7CF700111E31 /* UIFont+LTTFonts.m */; };
+		FDE8D2B41E7808BD00A602C4 /* LTTFilterEnumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE8D2B31E7808BD00A602C4 /* LTTFilterEnumViewController.m */; };
+		FDE8D2B71E7809BC00A602C4 /* LTTFilterEnumTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE8D2B61E7809BC00A602C4 /* LTTFilterEnumTVC.m */; };
+		FDE8D2BA1E7809DE00A602C4 /* LTTFilterEnumTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE8D2B91E7809DE00A602C4 /* LTTFilterEnumTVCell.m */; };
 		FDFA98691E6CA84D00E97187 /* LTTLampDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFA98681E6CA84D00E97187 /* LTTLampDetailsViewController.m */; };
 		FDFA986C1E6D34AE00E97187 /* LTTLampDetailsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFA986B1E6D34AE00E97187 /* LTTLampDetailsTVC.m */; };
 		FDFA986F1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFA986E1E6D34DD00E97187 /* LTTLampDetailsParameterTVCell.m */; };
@@ -95,6 +100,16 @@
 		FDCCDE6D1E75AD5B00F749CF /* LTTFilterStringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTFilterStringViewController.m; sourceTree = "<group>"; };
 		FDCCDE6F1E75C6E800F749CF /* LTTFilterNumericViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTFilterNumericViewController.h; sourceTree = "<group>"; };
 		FDCCDE701E75C6E800F749CF /* LTTFilterNumericViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTFilterNumericViewController.m; sourceTree = "<group>"; };
+		FDDB40451E7C7C8E00111E31 /* UIViewController+LTTMultilineTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LTTMultilineTitle.h"; sourceTree = "<group>"; };
+		FDDB40461E7C7C8E00111E31 /* UIViewController+LTTMultilineTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LTTMultilineTitle.m"; sourceTree = "<group>"; };
+		FDDB40481E7C7CF700111E31 /* UIFont+LTTFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+LTTFonts.h"; sourceTree = "<group>"; };
+		FDDB40491E7C7CF700111E31 /* UIFont+LTTFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+LTTFonts.m"; sourceTree = "<group>"; };
+		FDE8D2B21E7808BD00A602C4 /* LTTFilterEnumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTFilterEnumViewController.h; sourceTree = "<group>"; };
+		FDE8D2B31E7808BD00A602C4 /* LTTFilterEnumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTFilterEnumViewController.m; sourceTree = "<group>"; };
+		FDE8D2B51E7809BC00A602C4 /* LTTFilterEnumTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTFilterEnumTVC.h; sourceTree = "<group>"; };
+		FDE8D2B61E7809BC00A602C4 /* LTTFilterEnumTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTFilterEnumTVC.m; sourceTree = "<group>"; };
+		FDE8D2B81E7809DE00A602C4 /* LTTFilterEnumTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTFilterEnumTVCell.h; sourceTree = "<group>"; };
+		FDE8D2B91E7809DE00A602C4 /* LTTFilterEnumTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTFilterEnumTVCell.m; sourceTree = "<group>"; };
 		FDFA98671E6CA84D00E97187 /* LTTLampDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTLampDetailsViewController.h; sourceTree = "<group>"; };
 		FDFA98681E6CA84D00E97187 /* LTTLampDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTLampDetailsViewController.m; sourceTree = "<group>"; };
 		FDFA986A1E6D34AE00E97187 /* LTTLampDetailsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTLampDetailsTVC.h; sourceTree = "<group>"; };
@@ -199,6 +214,12 @@
 				FDCCDE6D1E75AD5B00F749CF /* LTTFilterStringViewController.m */,
 				FDCCDE6F1E75C6E800F749CF /* LTTFilterNumericViewController.h */,
 				FDCCDE701E75C6E800F749CF /* LTTFilterNumericViewController.m */,
+				FDE8D2B21E7808BD00A602C4 /* LTTFilterEnumViewController.h */,
+				FDE8D2B31E7808BD00A602C4 /* LTTFilterEnumViewController.m */,
+				FDE8D2B51E7809BC00A602C4 /* LTTFilterEnumTVC.h */,
+				FDE8D2B61E7809BC00A602C4 /* LTTFilterEnumTVC.m */,
+				FDE8D2B81E7809DE00A602C4 /* LTTFilterEnumTVCell.h */,
+				FDE8D2B91E7809DE00A602C4 /* LTTFilterEnumTVCell.m */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -219,8 +240,12 @@
 			children = (
 				FDFA98711E6D679700E97187 /* LTTRoundButton.h */,
 				FDFA98721E6D679700E97187 /* LTTRoundButton.m */,
+				FDDB40481E7C7CF700111E31 /* UIFont+LTTFonts.h */,
+				FDDB40491E7C7CF700111E31 /* UIFont+LTTFonts.m */,
 				FD2044081E5F489E00B64D8B /* UIColor+LTTColors.h */,
 				FD2044091E5F489E00B64D8B /* UIColor+LTTColors.m */,
+				FDDB40451E7C7C8E00111E31 /* UIViewController+LTTMultilineTitle.h */,
+				FDDB40461E7C7C8E00111E31 /* UIViewController+LTTMultilineTitle.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -447,6 +472,7 @@
 				FD5F6EEE1E702BBE004B02B6 /* LTTFiltersTVC.m in Sources */,
 				FDCCDE6B1E746AB100F749CF /* LTTFilter.m in Sources */,
 				FD5F6EF11E702C3C004B02B6 /* LTTFilterTVCell.m in Sources */,
+				FDDB40471E7C7C8E00111E31 /* UIViewController+LTTMultilineTitle.m in Sources */,
 				FD5F6EF81E71CC28004B02B6 /* LTTMainAssembly.m in Sources */,
 				FD28268C1E5F897F001C36E7 /* LTTLampListViewController.m in Sources */,
 				FD2826921E5F89B3001C36E7 /* LTTLampListViewModel.m in Sources */,
@@ -455,14 +481,18 @@
 				FD5F6EEB1E702BA2004B02B6 /* LTTFiltersViewController.m in Sources */,
 				FDFA98731E6D679700E97187 /* LTTRoundButton.m in Sources */,
 				FDFA98781E6DF7BB00E97187 /* LTTImageViewController.m in Sources */,
+				FDE8D2BA1E7809DE00A602C4 /* LTTFilterEnumTVCell.m in Sources */,
 				FD2826951E60A2AF001C36E7 /* LTTLampListTVCell.m in Sources */,
 				FD4562B41E5F6DAB00CC8074 /* LTTParser.m in Sources */,
 				FD2044021E5E094700B64D8B /* LTTLamp.m in Sources */,
 				FD2044051E5E0D4E00B64D8B /* LTTSettingsViewController.m in Sources */,
 				FD20440A1E5F489E00B64D8B /* UIColor+LTTColors.m in Sources */,
 				FDCCDE6E1E75AD5B00F749CF /* LTTFilterStringViewController.m in Sources */,
+				FDE8D2B41E7808BD00A602C4 /* LTTFilterEnumViewController.m in Sources */,
 				FDCCDE711E75C6E800F749CF /* LTTFilterNumericViewController.m in Sources */,
 				FD27AEAB1E5DC6110033A04E /* main.m in Sources */,
+				FDE8D2B71E7809BC00A602C4 /* LTTFilterEnumTVC.m in Sources */,
+				FDDB404A1E7C7CF700111E31 /* UIFont+LTTFonts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

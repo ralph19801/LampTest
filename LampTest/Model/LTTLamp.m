@@ -33,7 +33,6 @@
         case LTTLampBrightness:
         case LTTLampPulsation:
         case LTTLampAngle:
-        case LTTLampSwitch:
         case LTTLampR9:
         case LTTLampVoltageStart:
         case LTTLampVoltageEnd:
@@ -51,6 +50,7 @@
         case LTTLampSubtype:
         case LTTLampMade:
         case LTTLampVoltage:
+        case LTTLampSwitch:
             return LTTLampParameterTypeString;
             break;
             
@@ -110,7 +110,7 @@
             return @(self.powerEquivalent);
             
         case LTTLampMatte:
-            return @(self.matte);
+            return self.matte;
             
         case LTTLampVoltage:
             if (self.voltageStart == self.voltageEnd) {
@@ -137,7 +137,7 @@
             return @(self.angle);
             
         case LTTLampSwitch:
-            return @(self.switchAllowed);
+            return self.switchAllowed;
             
         case LTTLampR9:
             return @(self.R9);
@@ -234,11 +234,11 @@
                   @(LTTLampDurability) : @"заявленный срок службы, час",
                   @(LTTLampPower) : @"измеренная мощность, Вт",
                   @(LTTLampBrightness) : @"измеренный световой поток, Лм",
-                  @(LTTLampEffectivity) : @"эффективность (количество люмен на ватт)",
-                  @(LTTLampPowerEquivalent) : @"измеренный эквивалент мощности, Вт",
+                  @(LTTLampEffectivity) : @"эффективность (люмен/ватт)",
+                  @(LTTLampPowerEquivalent) : @"измеренный эквивалент, Вт",
                   @(LTTLampColor) : @"измеренная цветовая температура, К",
                   @(LTTLampNominalCRI) : @"заявленный CRI, не менее",
-                  @(LTTLampCRI) : @"измеренный индекс цветопередачи (CRI)",
+                  @(LTTLampCRI) : @"измеренный CRI",
                   @(LTTLampAngle) : @"измеренный угол освещения, град.",
                   @(LTTLampPulsation) : @"измеренный коэффициент пульсации, %",
                   @(LTTLampSwitch) : @"работа с выключателем, имеющим индикатор",
@@ -252,7 +252,7 @@
                   @(LTTLampMade) : @"дата изготовления лампы",
                   @(LTTLampDate) : @"дата тестирования",
                   @(LTTLampActual) : @"актуальность лампы",
-                  @(LTTLampRating) : @"общая оценка параметров лампы",
+                  @(LTTLampRating) : @"рейтинг лампы",
                   
                   @(LTTLampWarranty) : @"гарантия",
                   @(LTTLampR9) : @"R9",
@@ -296,7 +296,7 @@
                      @(LTTLampCRI) : @"CRI",
                      @(LTTLampAngle) : @"angle",
                      @(LTTLampPulsation) : @"pulsation",
-                     @(LTTLampSwitch) : @"switch",
+                     @(LTTLampSwitch) : @"switchAllowed",
                      @(LTTLampDimmer) : @"dimmerAllowed",
                      @(LTTLampDiameter) : @"diameter",
                      @(LTTLampHeight) : @"height",
