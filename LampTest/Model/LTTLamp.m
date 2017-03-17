@@ -313,6 +313,7 @@
                      @(LTTLampWarranty) : @"warranty",
                      @(LTTLampR9) : @"R9",
                      @(LTTLampPF) : @"PF",
+                     @(LTTLampVoltage) : @"" // нет в списке, см. LTTLampVoltageStart и LTTLampVoltageEnd
                      };
     });
     

@@ -12,12 +12,14 @@
 #import "LTTLampDetailsViewController.h"
 #import "LTTFilterManager.h"
 #import "LTTMainAssembly.h"
+#import "UIBarButtonItem+Badge.h"
 
 @interface LTTLampListViewController ()
 
 @property (nonatomic, strong) LTTLampListTVC *tableViewController;
 @property (nonatomic, strong) LTTLampListViewModel *viewModel;
-@property (nonatomic, weak) LTTLamp *selectedLamp;
+@property (nonatomic, strong) LTTLamp *selectedLamp;
+@property (nonatomic, strong) LTTFilterManager *filterManager;
 
 @end
 
@@ -27,8 +29,14 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.rightBarButtonItem.shouldAnimateBadge = YES;
+    
     [RACObserve(self.viewModel, lamps) subscribeNext:^(id x) {
         self.navigationItem.title = [NSString stringWithFormat:@"%i лампы", [x count]];
+    }];
+
+    [RACObserve(self.filterManager, activeFilters) subscribeNext:^(NSArray *x) {
+        self.navigationItem.rightBarButtonItem.badgeValue = [NSString stringWithFormat:@"%i", x.count];
     }];
 }
 
@@ -36,8 +44,8 @@
 {
     if ([segue.identifier isEqualToString:@"LampListEmbedTVC"])
     {
-        self.viewModel = [[LTTLampListViewModel alloc] initWithFilterManager:
-                          [[TyphoonComponentFactory defaultFactory] filterManager]];
+        self.filterManager = [[TyphoonComponentFactory defaultFactory] filterManager];
+        self.viewModel = [[LTTLampListViewModel alloc] initWithFilterManager:self.filterManager];
 
         self.tableViewController = segue.destinationViewController;
         self.tableViewController.viewModel = self.viewModel;

@@ -189,13 +189,16 @@
                             <constraint firstItem="Eo3-g5-aX6" firstAttribute="top" secondItem="ZH2-V9-7pe" secondAttribute="bottom" id="aNi-Wu-zHo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Сканер штрихкодов" id="1qx-jn-RdR"/>
+                    <navigationItem key="navigationItem" title="Сканер штрихкодов" id="1qx-jn-RdR">
+                        <barButtonItem key="backBarButtonItem" title=" " id="1ap-s4-Ous"/>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="codeNotFoundLabel" destination="L4h-xy-u1P" id="erf-SS-6cK"/>
                         <outlet property="codeNotFoundView" destination="VZl-9b-IRB" id="Vm6-vs-PP4"/>
                         <outlet property="forbiddenView" destination="c2O-Wh-KI4" id="5UU-Ac-Ofv"/>
                         <outlet property="scannerView" destination="Eo3-g5-aX6" id="Ofo-0a-5f9"/>
+                        <segue destination="ZTd-xR-i4A" kind="show" identifier="ScannerToLampDetails" id="Srn-ao-kkP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgQ-wP-V5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -257,7 +260,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n6D-uq-VYp" id="d0A-u1-di8">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Option name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06K-6X-bD1">
@@ -314,14 +317,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMd-qp-IUg" customClass="TTRangeSlider">
-                                <rect key="frame" x="16" y="124" width="343" height="44"/>
+                                <rect key="frame" x="16" y="96" width="343" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="paf-A7-U22"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wPX-Eb-OFU">
-                                <rect key="frame" x="56" y="182" width="97" height="30"/>
+                                <rect key="frame" x="56" y="154" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="mG6-3p-1Zv"/>
                                     <constraint firstAttribute="height" constant="30" id="oe4-Q6-HSA"/>
@@ -334,7 +337,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="От:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voM-AX-y6v">
-                                <rect key="frame" x="16" y="188" width="32" height="24"/>
+                                <rect key="frame" x="16" y="160" width="32" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="1Nf-5r-r3q"/>
                                     <constraint firstAttribute="width" constant="32" id="mAL-6A-IhW"/>
@@ -344,7 +347,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="До:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RE5-ZH-BBp">
-                                <rect key="frame" x="222" y="188" width="32" height="24"/>
+                                <rect key="frame" x="222" y="160" width="32" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="0rm-2z-sQA"/>
                                     <constraint firstAttribute="width" constant="32" id="AO2-wh-imb"/>
@@ -354,7 +357,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PQG-9a-z0T">
-                                <rect key="frame" x="262" y="182" width="97" height="30"/>
+                                <rect key="frame" x="262" y="154" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="6W7-wl-it0"/>
                                     <constraint firstAttribute="height" constant="30" id="Avt-m8-Ehr"/>
@@ -368,12 +371,13 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="YMd-qp-IUg" firstAttribute="leading" secondItem="nTQ-Sp-IYd" secondAttribute="leading" constant="16" id="9E4-Zf-esn"/>
                             <constraint firstItem="wPX-Eb-OFU" firstAttribute="leading" secondItem="voM-AX-y6v" secondAttribute="trailing" constant="8" id="LIi-t2-itg"/>
                             <constraint firstItem="PQG-9a-z0T" firstAttribute="leading" secondItem="RE5-ZH-BBp" secondAttribute="trailing" constant="8" id="OQd-Th-bZ3"/>
                             <constraint firstAttribute="trailing" secondItem="PQG-9a-z0T" secondAttribute="trailing" constant="16" id="SPY-CH-jHL"/>
-                            <constraint firstItem="YMd-qp-IUg" firstAttribute="top" secondItem="LS1-vq-Qr9" secondAttribute="bottom" constant="60" id="X2O-aW-3tb"/>
+                            <constraint firstItem="YMd-qp-IUg" firstAttribute="top" secondItem="LS1-vq-Qr9" secondAttribute="bottom" constant="32" id="X2O-aW-3tb"/>
                             <constraint firstItem="voM-AX-y6v" firstAttribute="leading" secondItem="nTQ-Sp-IYd" secondAttribute="leading" constant="16" id="ZYg-4H-4iE"/>
                             <constraint firstItem="RE5-ZH-BBp" firstAttribute="top" secondItem="YMd-qp-IUg" secondAttribute="bottom" constant="20" id="cbj-gB-74X"/>
                             <constraint firstItem="PQG-9a-z0T" firstAttribute="top" secondItem="YMd-qp-IUg" secondAttribute="bottom" constant="14" id="e0W-VL-ypO"/>
@@ -381,6 +385,9 @@
                             <constraint firstItem="voM-AX-y6v" firstAttribute="top" secondItem="YMd-qp-IUg" secondAttribute="bottom" constant="20" id="s88-kL-rUK"/>
                             <constraint firstAttribute="trailing" secondItem="YMd-qp-IUg" secondAttribute="trailing" constant="16" id="ysA-An-krz"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="eX0-r7-9Wp" appends="YES" id="ZcY-0w-mlo"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Числовой интервал" id="YJj-1x-BVP">
@@ -399,6 +406,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNH-kJ-bjq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="eX0-r7-9Wp">
+                    <connections>
+                        <action selector="closeKeyboards:" destination="VBA-et-M3q" id="33Y-KB-dwB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2964" y="-1963.2683658170915"/>
         </scene>
@@ -415,7 +427,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Искать" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jby-kn-Gwa">
-                                <rect key="frame" x="16" y="124" width="343" height="30"/>
+                                <rect key="frame" x="16" y="96" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="2dR-uI-cHA"/>
                                 </constraints>
@@ -431,7 +443,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Jby-kn-Gwa" secondAttribute="trailing" constant="16" id="5lw-KN-auP"/>
                             <constraint firstItem="Jby-kn-Gwa" firstAttribute="leading" secondItem="LCc-Fk-2Hs" secondAttribute="leading" constant="16" id="pmp-cw-Uj7"/>
-                            <constraint firstItem="Jby-kn-Gwa" firstAttribute="top" secondItem="KHJ-ns-t6n" secondAttribute="bottom" constant="60" id="wOz-pP-mTq"/>
+                            <constraint firstItem="Jby-kn-Gwa" firstAttribute="top" secondItem="KHJ-ns-t6n" secondAttribute="bottom" constant="32" id="wOz-pP-mTq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Поиск по строке" id="Cai-L1-exB">
@@ -1236,4 +1248,7 @@
         <image name="settings" width="21" height="21"/>
         <image name="vmLogo" width="76" height="15"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Srn-ao-kkP"/>
+    </inferredMetricsTieBreakers>
 </document>

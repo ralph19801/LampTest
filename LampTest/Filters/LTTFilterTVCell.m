@@ -63,15 +63,25 @@
                 break;
                 
             case LTTFilterTypeString:
-                self.valueLabel.text = [NSString stringWithFormat:@"*%@*", self.filter.stringValue];
+                self.valueLabel.text = [NSString stringWithFormat:@"%@", self.filter.stringValue];
                 break;
                 
             case LTTFilterTypeNumeric:
-                if (paramType == LTTLampParameterTypeInteger) {
-                    self.valueLabel.text = [NSString stringWithFormat:@"от %i до %i", (NSInteger)self.filter.minValue, (NSInteger)self.filter.maxValue];
+                if (paramType == LTTLampParameterTypeDouble) {
+                    if (self.filter.minValue == self.filter.maxValue) {
+                         self.valueLabel.text = [NSString stringWithFormat:@"%.1f", self.filter.minValue];
+                    }
+                    else {
+                        self.valueLabel.text = [NSString stringWithFormat:@"от %.1f до %.1f", self.filter.minValue, self.filter.maxValue];
+                    }
                 }
                 else {
-                    self.valueLabel.text = [NSString stringWithFormat:@"от %.1f до %.1f", self.filter.minValue, self.filter.maxValue];
+                    if (self.filter.minValue == self.filter.maxValue) {
+                        self.valueLabel.text = [NSString stringWithFormat:@"%i", (NSInteger)round(self.filter.minValue)];
+                    }
+                    else {
+                        self.valueLabel.text = [NSString stringWithFormat:@"от %i до %i", (NSInteger)round(self.filter.minValue), (NSInteger)round(self.filter.maxValue)];
+                    }
                 }
                 break;
                 

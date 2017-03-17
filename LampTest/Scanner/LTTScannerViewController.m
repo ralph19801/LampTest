@@ -8,6 +8,8 @@
 
 #import "LTTScannerViewController.h"
 #import <MTBBarcodeScanner/MTBBarcodeScanner.h>
+#import "LTTLamp.h"
+#import "LTTLampDetailsViewController.h"
 
 @interface LTTScannerViewController ()
 
@@ -17,6 +19,8 @@
 
 @property (nonatomic, strong) IBOutlet UIView *scannerView;
 @property (nonatomic, strong) MTBBarcodeScanner *scanner;
+
+@property (nonatomic, strong) LTTLamp *currentLamp;
 
 @end
 
@@ -63,10 +67,16 @@
                 
                 [self.scanner stopScanning];
                 
-                self.codeNotFoundLabel.text = [NSString stringWithFormat:@"Код\n%@\nне найден в базе.", code.stringValue];
-                
-                self.codeNotFoundView.hidden = NO;
-                self.forbiddenView.hidden = YES;
+                RLMResults *lampArray = [LTTLamp objectsWhere:[NSString stringWithFormat:@"code = '%@'", code.stringValue]];
+                if (lampArray.count > 0) {
+                    self.currentLamp = lampArray.firstObject;
+                    [self performSegueWithIdentifier:@"ScannerToLampDetails" sender:self];
+                }
+                else {
+                    self.codeNotFoundLabel.text = [NSString stringWithFormat:@"Код\n%@\nне найден в базе.", code.stringValue];
+                    self.codeNotFoundView.hidden = NO;
+                    self.forbiddenView.hidden = YES;
+                }
                 
             } error:&error];
         }
@@ -76,6 +86,14 @@
             self.forbiddenView.hidden = NO;
         }
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ScannerToLampDetails"]) {
+        LTTLampDetailsViewController *lampDetails = segue.destinationViewController;
+        lampDetails.lamp = self.currentLamp;
+    }
 }
 
 @end

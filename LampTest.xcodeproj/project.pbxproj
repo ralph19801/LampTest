@@ -36,6 +36,8 @@
 		FDCCDE711E75C6E800F749CF /* LTTFilterNumericViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCCDE701E75C6E800F749CF /* LTTFilterNumericViewController.m */; };
 		FDDB40471E7C7C8E00111E31 /* UIViewController+LTTMultilineTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDB40461E7C7C8E00111E31 /* UIViewController+LTTMultilineTitle.m */; };
 		FDDB404A1E7C7CF700111E31 /* UIFont+LTTFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDB40491E7C7CF700111E31 /* UIFont+LTTFonts.m */; };
+		FDDB404D1E7C8AC200111E31 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDB404B1E7C8AC200111E31 /* UIBarButtonItem+Badge.m */; };
+		FDDB40501E7C918400111E31 /* NSString+LTTCapitalize.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDB404F1E7C918400111E31 /* NSString+LTTCapitalize.m */; };
 		FDE8D2B41E7808BD00A602C4 /* LTTFilterEnumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE8D2B31E7808BD00A602C4 /* LTTFilterEnumViewController.m */; };
 		FDE8D2B71E7809BC00A602C4 /* LTTFilterEnumTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE8D2B61E7809BC00A602C4 /* LTTFilterEnumTVC.m */; };
 		FDE8D2BA1E7809DE00A602C4 /* LTTFilterEnumTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE8D2B91E7809DE00A602C4 /* LTTFilterEnumTVCell.m */; };
@@ -104,6 +106,10 @@
 		FDDB40461E7C7C8E00111E31 /* UIViewController+LTTMultilineTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LTTMultilineTitle.m"; sourceTree = "<group>"; };
 		FDDB40481E7C7CF700111E31 /* UIFont+LTTFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+LTTFonts.h"; sourceTree = "<group>"; };
 		FDDB40491E7C7CF700111E31 /* UIFont+LTTFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+LTTFonts.m"; sourceTree = "<group>"; };
+		FDDB404B1E7C8AC200111E31 /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
+		FDDB404C1E7C8AC200111E31 /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
+		FDDB404E1E7C918400111E31 /* NSString+LTTCapitalize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LTTCapitalize.h"; sourceTree = "<group>"; };
+		FDDB404F1E7C918400111E31 /* NSString+LTTCapitalize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LTTCapitalize.m"; sourceTree = "<group>"; };
 		FDE8D2B21E7808BD00A602C4 /* LTTFilterEnumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTFilterEnumViewController.h; sourceTree = "<group>"; };
 		FDE8D2B31E7808BD00A602C4 /* LTTFilterEnumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTFilterEnumViewController.m; sourceTree = "<group>"; };
 		FDE8D2B51E7809BC00A602C4 /* LTTFilterEnumTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTFilterEnumTVC.h; sourceTree = "<group>"; };
@@ -246,6 +252,10 @@
 				FD2044091E5F489E00B64D8B /* UIColor+LTTColors.m */,
 				FDDB40451E7C7C8E00111E31 /* UIViewController+LTTMultilineTitle.h */,
 				FDDB40461E7C7C8E00111E31 /* UIViewController+LTTMultilineTitle.m */,
+				FDDB404C1E7C8AC200111E31 /* UIBarButtonItem+Badge.h */,
+				FDDB404B1E7C8AC200111E31 /* UIBarButtonItem+Badge.m */,
+				FDDB404E1E7C918400111E31 /* NSString+LTTCapitalize.h */,
+				FDDB404F1E7C918400111E31 /* NSString+LTTCapitalize.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -485,9 +495,11 @@
 				FD2826951E60A2AF001C36E7 /* LTTLampListTVCell.m in Sources */,
 				FD4562B41E5F6DAB00CC8074 /* LTTParser.m in Sources */,
 				FD2044021E5E094700B64D8B /* LTTLamp.m in Sources */,
+				FDDB40501E7C918400111E31 /* NSString+LTTCapitalize.m in Sources */,
 				FD2044051E5E0D4E00B64D8B /* LTTSettingsViewController.m in Sources */,
 				FD20440A1E5F489E00B64D8B /* UIColor+LTTColors.m in Sources */,
 				FDCCDE6E1E75AD5B00F749CF /* LTTFilterStringViewController.m in Sources */,
+				FDDB404D1E7C8AC200111E31 /* UIBarButtonItem+Badge.m in Sources */,
 				FDE8D2B41E7808BD00A602C4 /* LTTFilterEnumViewController.m in Sources */,
 				FDCCDE711E75C6E800F749CF /* LTTFilterNumericViewController.m in Sources */,
 				FD27AEAB1E5DC6110033A04E /* main.m in Sources */,

@@ -44,7 +44,7 @@
             break;
             
         case LTTLampParameterTypeBool:
-            self.valueLabel.text = ([((NSNumber *)value) boolValue]) ? @"Да" : @"Нет";
+            self.valueLabel.text = ([((NSNumber *)value) boolValue]) ? @"да" : @"нет";
             break;
             
         case LTTLampParameterTypeDate:

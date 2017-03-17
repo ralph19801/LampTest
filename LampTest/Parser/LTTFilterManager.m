@@ -96,6 +96,9 @@ CGFloat const LTTFilterNumericParamOff = -1;
                 if (param == LTTLampModel) {
                     filter.type = LTTFilterTypeString;
                 }
+                else if (param == LTTLampVoltage) {
+                    filter.type = LTTFilterTypeNumeric;
+                }
                 else {
                     filter.type = LTTFilterTypeEnum;
                 }

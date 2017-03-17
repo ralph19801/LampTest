@@ -13,6 +13,7 @@
 #import "LTTLamp.h"
 #import "LTTFilter.h"
 #import "UIViewController+LTTMultilineTitle.h"
+#import "NSString+LTTCapitalize.h"
 
 @interface LTTFilterEnumViewController ()
 
@@ -26,7 +27,7 @@
 {
     [super viewDidLoad];
     
-    [self ltt_setupTitle:[LTTLamp nameForParameter:self.filter.param]];
+    [self ltt_setupTitle:[[LTTLamp nameForParameter:self.filter.param] sentenceCapitalizedString]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

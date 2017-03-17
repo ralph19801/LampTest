@@ -12,6 +12,7 @@
 #import "LTTFilterManager.h"
 #import "LTTMainAssembly.h"
 #import "UIViewController+LTTMultilineTitle.h"
+#import "NSString+LTTCapitalize.h"
 
 @interface LTTFilterStringViewController ()
 
@@ -27,7 +28,7 @@
     
     [self.searchTextField becomeFirstResponder];
     
-    [self ltt_setupTitle:[LTTLamp nameForParameter:self.filter.param]];
+    [self ltt_setupTitle:[[LTTLamp nameForParameter:self.filter.param] sentenceCapitalizedString]];
     self.searchTextField.text = self.filter.stringValue;
 }
 

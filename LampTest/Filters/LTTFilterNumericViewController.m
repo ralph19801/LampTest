@@ -14,6 +14,7 @@
 #import "LTTFilterManager.h"
 #import <Realm/Realm.h>
 #import "UIViewController+LTTMultilineTitle.h"
+#import "NSString+LTTCapitalize.h"
 
 @interface LTTFilterNumericViewController () <TTRangeSliderDelegate, UITextFieldDelegate>
 
@@ -34,12 +35,20 @@
 {
     [super viewDidLoad];
     
-    [self ltt_setupTitle:[LTTLamp nameForParameter:self.filter.param]];
+    [self ltt_setupTitle:[[LTTLamp nameForParameter:self.filter.param] sentenceCapitalizedString]];
     
+    LTTLampParameterTypes paramType = [LTTLamp typeOfParameter:self.filter.param];
     NSString *propertyName = [LTTLamp propertyForParameter:self.filter.param];
+    
     RLMResults *allObjects = [LTTLamp allObjects];
-    self.globalMinValue = [[allObjects minOfProperty:propertyName] floatValue];
-    self.globalMaxValue = [[allObjects maxOfProperty:propertyName] floatValue];
+    if (self.filter.param == LTTLampVoltage) {
+        self.globalMinValue = [[allObjects minOfProperty:[LTTLamp propertyForParameter:LTTLampVoltageStart]] floatValue];
+        self.globalMaxValue = [[allObjects maxOfProperty:[LTTLamp propertyForParameter:LTTLampVoltageEnd]] floatValue];
+    }
+    else {
+        self.globalMinValue = [[allObjects minOfProperty:propertyName] floatValue];
+        self.globalMaxValue = [[allObjects maxOfProperty:propertyName] floatValue];
+    }
     
     self.minField.delegate = self;
     self.maxField.delegate = self;
@@ -58,7 +67,7 @@
     self.comparingFormatter.numberStyle = kCFNumberFormatterDecimalStyle;
     
     self.formatter = [self.comparingFormatter copy];
-    self.formatter.maximumFractionDigits = 1;
+    self.formatter.maximumFractionDigits = (paramType == LTTLampParameterTypeDouble) ? 1 : 0;
     self.formatter.usesGroupingSeparator = NO;
     self.formatter.minimum = @(self.globalMinValue);
     self.formatter.maximum = @(self.globalMaxValue);
@@ -67,6 +76,10 @@
     
     [self updateMinValue:(self.filter.minValue == LTTFilterNumericParamOff) ? self.globalMinValue : self.filter.minValue];
     [self updateMaxValue:(self.filter.maxValue == LTTFilterNumericParamOff) ? self.globalMaxValue : self.filter.maxValue];
+    
+    if (paramType == LTTLampParameterTypeInteger) {
+        self.minField.keyboardType = self.maxField.keyboardType = UIKeyboardTypeNumberPad;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -109,8 +122,10 @@
             [self updateMinValue:self.globalMinValue];
         }
         else if (minValue > maxValue) {
-            self.minField.text = self.maxField.text;
             [self updateMinValue:[[self.formatter numberFromString:self.maxField.text] floatValue]];
+        }
+        else {
+            [self updateMinValue:[[self.formatter numberFromString:self.minField.text] floatValue]];
         }
     }
     else if ([sender isEqual:self.maxField]) {
@@ -119,6 +134,9 @@
         }
         else if (maxValue < minValue) {
             [self updateMaxValue:[[self.formatter numberFromString:self.minField.text] floatValue]];
+        }
+        else {
+            [self updateMaxValue:[[self.formatter numberFromString:self.maxField.text] floatValue]];
         }
     }
 }
@@ -131,6 +149,12 @@
     [self.filterManager dropFilter:self.filter];
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)closeKeyboards:(id)sender
+{
+    [self.minField resignFirstResponder];
+    [self.maxField resignFirstResponder];
 }
 
 @end

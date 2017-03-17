@@ -19,7 +19,7 @@
     else {
         NSString *property = [LTTLamp propertyForParameter:self.param];
         
-        if (property.length == 0) {
+        if ( ! property ) {
             return nil;
         }
         
@@ -38,11 +38,19 @@
                 return [NSString stringWithFormat:@"%@ = true", property];
                 
             case LTTFilterTypeNumeric:
-                if (paramType == LTTLampParameterTypeInteger) {
-                    return [NSString stringWithFormat:@"%@ >= %i AND %@ <= %i", property, (NSInteger)self.minValue, property, (NSInteger)self.maxValue];
+                if (self.param == LTTLampVoltage) {
+                    NSString *startProperty = [LTTLamp propertyForParameter:LTTLampVoltageStart];
+                    NSString *endProperty = [LTTLamp propertyForParameter:LTTLampVoltageEnd];
+                    return [NSString stringWithFormat:@"%@ <= %i AND %@ >= %i",
+                            startProperty, (NSInteger)self.maxValue, endProperty, (NSInteger)self.minValue];
                 }
                 else {
-                    return [NSString stringWithFormat:@"%@ >= %.1f AND %@ <= %.1f", property, self.minValue, property, self.maxValue];
+                    if (paramType == LTTLampParameterTypeInteger) {
+                        return [NSString stringWithFormat:@"%@ >= %i AND %@ <= %i", property, (NSInteger)self.minValue, property, (NSInteger)self.maxValue];
+                    }
+                    else {
+                        return [NSString stringWithFormat:@"%@ >= %.1f AND %@ <= %.1f", property, self.minValue, property, self.maxValue];
+                    }
                 }
         }
     }
