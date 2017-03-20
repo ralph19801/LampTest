@@ -26,7 +26,6 @@
         case LTTLampWarranty:
         case LTTLampNominalPowerEquivalent:
         case LTTLampPowerEquivalent:
-        case LTTLampMatte:
         case LTTLampVoltageMin:
         case LTTLampPriceRub:
         case LTTLampNominalBrightness:
@@ -51,6 +50,7 @@
         case LTTLampMade:
         case LTTLampVoltage:
         case LTTLampSwitch:
+        case LTTLampMatte:
             return LTTLampParameterTypeString;
             break;
             

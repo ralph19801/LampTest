@@ -160,10 +160,12 @@ static NSInteger const LTTLampImagesCell = -1;
         }
     }
     else if ((paramType == LTTLampParameterTypeDouble || paramType == LTTLampParameterTypeInteger) && [paramValue isKindOfClass:[NSNumber class]]) {
-        if ([paramValue isEqual:@0]) {
-            paramType = LTTLampParameterTypeString;
-            paramValue = @"н/д";
-            valueColor = [UIColor grayColor];
+        if (param != LTTLampRating) {
+            if ([paramValue isEqual:@0]) {
+                paramType = LTTLampParameterTypeString;
+                paramValue = @"н/д";
+                valueColor = [UIColor grayColor];
+            }
         }
     }
     [cell setParameterValue:paramValue type:paramType color:valueColor];

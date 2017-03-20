@@ -642,6 +642,7 @@
 			baseConfigurationReference = 9FD6F84AD3D0FF5A9B0070BC /* Pods-LampTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = PV7G447LWR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LampTest/Supporting Files/LampTest.pch";
