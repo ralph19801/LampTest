@@ -41,12 +41,12 @@
                 if (self.param == LTTLampVoltage) {
                     NSString *startProperty = [LTTLamp propertyForParameter:LTTLampVoltageStart];
                     NSString *endProperty = [LTTLamp propertyForParameter:LTTLampVoltageEnd];
-                    return [NSString stringWithFormat:@"%@ <= %i AND %@ >= %i",
-                            startProperty, (NSInteger)self.maxValue, endProperty, (NSInteger)self.minValue];
+                    return [NSString stringWithFormat:@"%@ <= %li AND %@ >= %li",
+                            startProperty, (long)self.maxValue, endProperty, (long)self.minValue];
                 }
                 else {
                     if (paramType == LTTLampParameterTypeInteger) {
-                        return [NSString stringWithFormat:@"%@ >= %i AND %@ <= %i", property, (NSInteger)self.minValue, property, (NSInteger)self.maxValue];
+                        return [NSString stringWithFormat:@"%@ >= %li AND %@ <= %li", property, (long)self.minValue, property, (long)self.maxValue];
                     }
                     else {
                         return [NSString stringWithFormat:@"%@ >= %.1f AND %@ <= %.1f", property, self.minValue, property, self.maxValue];

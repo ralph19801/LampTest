@@ -30,7 +30,7 @@
         self.optionNameLabel.text = self.option;
     }
     else if ([option isKindOfClass:[NSNumber class]]) {
-        self.optionNameLabel.text = [NSString stringWithFormat:@"%i", [self.option integerValue]];
+        self.optionNameLabel.text = [NSString stringWithFormat:@"%li", (long)[self.option integerValue]];
     }
 }
 

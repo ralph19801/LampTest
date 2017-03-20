@@ -7,6 +7,8 @@ platform :ios, '8.0'
 def common_pods
     pod 'AFNetworking', '~> 2.6.3'
     pod 'CHCSVParser', '~> 2.1.0'
+    pod 'Crashlytics', '~> 3.8.3'
+    pod 'Fabric', '~> 1.6.11'
     pod 'Mantle', '~> 2.1.0'
     pod 'MTBBarcodeScanner', '~> 3.1.0'
     pod 'ReactiveCocoa', '= 2.5'

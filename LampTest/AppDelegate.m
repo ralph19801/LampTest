@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 #import "LTTMainAssembly.h"
 #import "UIColor+LTTColors.h"
 #import "UIFont+LTTFonts.h"
@@ -20,6 +23,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Fabric with:@[[Crashlytics class]]];
+    
     TyphoonComponentFactory *factory = [[TyphoonBlockComponentFactory alloc] initWithAssembly:[LTTMainAssembly assembly]];
     [factory makeDefault];
     

@@ -77,10 +77,10 @@
                 }
                 else {
                     if (self.filter.minValue == self.filter.maxValue) {
-                        self.valueLabel.text = [NSString stringWithFormat:@"%i", (NSInteger)round(self.filter.minValue)];
+                        self.valueLabel.text = [NSString stringWithFormat:@"%li", (long)round(self.filter.minValue)];
                     }
                     else {
-                        self.valueLabel.text = [NSString stringWithFormat:@"от %i до %i", (NSInteger)round(self.filter.minValue), (NSInteger)round(self.filter.maxValue)];
+                        self.valueLabel.text = [NSString stringWithFormat:@"от %li до %li", (long)round(self.filter.minValue), (long)round(self.filter.maxValue)];
                     }
                 }
                 break;
@@ -104,7 +104,7 @@
                     self.valueLabel.text = [NSString stringWithFormat:@"%@, %@", firstOption, secondOption];
                 }
                 else {
-                    self.valueLabel.text = [NSString stringWithFormat:@"%@ + ещё %i", firstOption, options.count - 1];
+                    self.valueLabel.text = [NSString stringWithFormat:@"%@ + ещё %u", firstOption, options.count - 1];
                 }
                 break;
         }

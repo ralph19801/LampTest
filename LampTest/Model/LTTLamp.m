@@ -114,9 +114,9 @@
             
         case LTTLampVoltage:
             if (self.voltageStart == self.voltageEnd) {
-                return [NSString stringWithFormat:@"%i", self.voltageStart];
+                return [NSString stringWithFormat:@"%li", (long)self.voltageStart];
             }
-            return [NSString stringWithFormat:@"%i-%i", self.voltageStart, self.voltageEnd];
+            return [NSString stringWithFormat:@"%li-%li", (long)self.voltageStart, (long)self.voltageEnd];
             
         case LTTLampVoltageMin:
             return @(self.voltageMin);

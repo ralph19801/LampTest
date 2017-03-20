@@ -89,6 +89,9 @@
     if (self.slider.selectedMinimum != self.slider.minValue || self.slider.selectedMaximum != self.slider.maxValue) {
         [self.filterManager activateFilter:self.filter minValue:self.slider.selectedMinimum maxValue:self.slider.selectedMaximum];
     }
+    else {
+        [self.filterManager dropFilter:self.filter];
+    }
 }
 
 #pragma mark - Updating min-max

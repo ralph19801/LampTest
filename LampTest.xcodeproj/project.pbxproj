@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -359,6 +359,7 @@
 				FD27AEA41E5DC6110033A04E /* Resources */,
 				8B6F42FE43B8438D1E504FF6 /* [CP] Embed Pods Frameworks */,
 				779D6CB766F118073571F79B /* [CP] Copy Pods Resources */,
+				FD34C1AD1E805FB100FBDCDC /* Fabric/Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -377,7 +378,7 @@
 			attributes = {
 				CLASSPREFIX = LTT;
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = VMB;
+				ORGANIZATIONNAME = LampTest;
 				TargetAttributes = {
 					FD27AEA51E5DC6110033A04E = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -387,7 +388,7 @@
 				};
 			};
 			buildConfigurationList = FD27AEA11E5DC6110033A04E /* Build configuration list for PBXProject "LampTest" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -466,6 +467,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LampTest/Pods-LampTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FD34C1AD1E805FB100FBDCDC /* Fabric/Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric/Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 9f53a800a691548488565b2471a108aed2353718 61e007e752e4098b1c3e006f7965ddde916f526b0f345f5b050d3b45df66f551";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -633,7 +648,7 @@
 				INFOPLIST_FILE = "LampTest/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = VMB.LampTest;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.LampTest.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -649,7 +664,7 @@
 				INFOPLIST_FILE = "LampTest/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = VMB.LampTest;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.LampTest.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

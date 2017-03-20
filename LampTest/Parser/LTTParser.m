@@ -124,7 +124,7 @@ NSString *const LTTParameterValueStringNo = @"нет";
             [self parseField:fn value:field];
         }
         else {
-            NSLog(@"unknown row %i", fieldIndex);
+            NSLog(@"unknown row %li", (long)fieldIndex);
         }
     }
 }
@@ -153,7 +153,7 @@ NSString *const LTTParameterValueStringNo = @"нет";
         self.fieldNames[@(index)] = fieldName;
     }
     else {
-        NSLog(@"trying to record fieldname %@ at %i", fieldName, index);
+        NSLog(@"trying to record fieldname %@ at %li", fieldName, (long)index);
     }
 }
 

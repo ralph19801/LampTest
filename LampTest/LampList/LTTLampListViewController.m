@@ -32,11 +32,11 @@
     self.navigationItem.rightBarButtonItem.shouldAnimateBadge = YES;
     
     [RACObserve(self.viewModel, lamps) subscribeNext:^(id x) {
-        self.navigationItem.title = [NSString stringWithFormat:@"%i лампы", [x count]];
+        self.navigationItem.title = [NSString stringWithFormat:@"%lu лампы", (unsigned long)[x count]];
     }];
 
     [RACObserve(self.filterManager, activeFilters) subscribeNext:^(NSArray *x) {
-        self.navigationItem.rightBarButtonItem.badgeValue = [NSString stringWithFormat:@"%i", x.count];
+        self.navigationItem.rightBarButtonItem.badgeValue = [NSString stringWithFormat:@"%lu", (unsigned long)x.count];
     }];
 }
 

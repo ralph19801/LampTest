@@ -40,7 +40,7 @@
             break;
             
         case LTTLampParameterTypeInteger:
-            self.valueLabel.text = [NSString stringWithFormat:@"%i", [((NSNumber *)value) integerValue]];
+            self.valueLabel.text = [NSString stringWithFormat:@"%li", (long)[((NSNumber *)value) integerValue]];
             break;
             
         case LTTLampParameterTypeBool:
