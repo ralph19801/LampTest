@@ -3,7 +3,7 @@
 //  LampTest
 //
 //  Created by Garafutdinov Ravil on 23/02/2017.
-//  Copyright © 2017 VMB. All rights reserved.
+//  Copyright © 2017 LampTest. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

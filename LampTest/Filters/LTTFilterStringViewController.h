@@ -3,7 +3,7 @@
 //  LampTest
 //
 //  Created by Garafutdinov Ravil on 12/03/2017.
-//  Copyright © 2017 VMB. All rights reserved.
+//  Copyright © 2017 LampTest. All rights reserved.
 //
 
 @class LTTFilter;
